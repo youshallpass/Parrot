@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ColoringManager : MonoBehaviour
 {
-    [SerializeField] private float brushSize = 20f;
     [SerializeField] private Color color = Color.red;
     [SerializeField] private SpriteRenderer picture;
     [SerializeField] private SpriteRenderer paintLayer;
+    public float brushSize = 20f;
     private Texture2D canvasTexture;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,6 +58,11 @@ public class ColoringManager : MonoBehaviour
     private void SetColor(Color newColor)
     {
         color = newColor;
+    }
+
+    public void SetBrushSize(float newBrushSize)
+    {
+        brushSize = newBrushSize;
     }
 
     private void Paint(Vector2 touchPosition)
