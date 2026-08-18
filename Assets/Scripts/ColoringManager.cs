@@ -55,11 +55,6 @@ public class ColoringManager : MonoBehaviour
         canvasTexture.Apply();
     }
 
-    private void SetColor(Color newColor)
-    {
-        color = newColor;
-    }
-
     public void SetBrushSize(float newBrushSize)
     {
         brushSize = newBrushSize;
@@ -94,5 +89,25 @@ public class ColoringManager : MonoBehaviour
             }
         }
         canvasTexture.Apply();
+    }
+
+    public void SetColorRed()
+    {
+        color = Color.red;
+    }
+
+    public void SetColorGreen()
+    {
+        color = Color.green;
+    }
+
+    public void SetColorBlue()
+    {
+        color = Color.blue;
+    }
+
+    public void SetColorClear()
+    {
+        color = Color.clear;
     }
 }
