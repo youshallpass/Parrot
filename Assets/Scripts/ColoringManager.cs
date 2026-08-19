@@ -77,14 +77,18 @@ public class ColoringManager : MonoBehaviour
         int pixelY = Mathf.RoundToInt(y * canvasTexture.height);
 
         int size = Mathf.RoundToInt(brushSize);
+        int radius = size / 2;
 
-        for (int i = -size / 2; i < size / 2;  i++)
+        for (int i = -radius; i < radius;  i++)
         {
-            for (int j = -size / 2; j < size / 2; j++)
+            for (int j = -radius; j < radius; j++)
             {
-                if (pixelX + i >= 0 && pixelX + i < canvasTexture.width && pixelY + j >= 0 && pixelY + j < canvasTexture.height)
+                if (i * i + j * j <= radius * radius)
                 {
-                    canvasTexture.SetPixel(pixelX + i, pixelY + j, color);
+                    if (pixelX + i >= 0 && pixelX + i < canvasTexture.width && pixelY + j >= 0 && pixelY + j < canvasTexture.height)
+                    {
+                        canvasTexture.SetPixel(pixelX + i, pixelY + j, color);
+                    }
                 }
             }
         }
