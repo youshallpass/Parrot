@@ -7,6 +7,7 @@ public class ColoringManager : MonoBehaviour
     [SerializeField] private SpriteRenderer paintLayer;
     public float brushSize = 20f;
     private Texture2D canvasTexture;
+    private Vector2 previousTouchPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,8 +22,19 @@ public class ColoringManager : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            Vector2 touchPosition = touch.position;
-            Paint(touchPosition);
+            if (touch.phase == TouchPhase.Began)
+            {
+                previousTouchPosition = touch.position;
+                Paint(touch.position);
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                PaintLine(previousTouchPosition, touch.position);
+                previousTouchPosition = touch.position;
+            }
+
+            //Vector2 touchPosition = touch.position;
+            //Paint(touchPosition);
         }
 
 #if UNITY_EDITOR
@@ -93,6 +105,20 @@ public class ColoringManager : MonoBehaviour
             }
         }
         canvasTexture.Apply();
+    }
+
+    private void PaintLine(Vector2 start, Vector2 end)
+    {
+        float distance = Vector2.Distance(start, end);
+        int steps = Mathf.CeilToInt(distance / (brushSize / 4));
+
+        for (int i = 0; i < steps; i++)
+        {
+            float t = (float)i / steps;
+            Vector2 position = Vector2.Lerp(start, end, t);
+
+            Paint(position);
+        }
     }
 
     public void SetColorRed()
