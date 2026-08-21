@@ -3,8 +3,10 @@ using UnityEngine;
 public class ColoringManager : MonoBehaviour
 {
     [SerializeField] private Color color = Color.red;
+    [SerializeField] private Sprite[] pictures;
     [SerializeField] private SpriteRenderer picture;
     [SerializeField] private SpriteRenderer paintLayer;
+    private int pictureIndex;
     public float brushSize = 20f;
     private Texture2D canvasTexture;
     private Vector2 previousTouchPosition;
@@ -32,9 +34,6 @@ public class ColoringManager : MonoBehaviour
                 PaintLine(previousTouchPosition, touch.position);
                 previousTouchPosition = touch.position;
             }
-
-            //Vector2 touchPosition = touch.position;
-            //Paint(touchPosition);
         }
 
 #if UNITY_EDITOR
@@ -45,12 +44,13 @@ public class ColoringManager : MonoBehaviour
 #endif
     }
 
-    private void InitializeCanvasTexture()
+    public void InitializeCanvasTexture()
     {
-        canvasTexture = new Texture2D(picture.sprite.texture.width, picture.sprite.texture.height, TextureFormat.RGBA32, false);
+        Texture2D pictureData = picture.sprite.texture;
+        canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
         canvasTexture.filterMode = FilterMode.Bilinear;
 
-        Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, picture.sprite.texture.width, picture.sprite.texture.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
+        Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
         paintLayer.sprite = paintSprite;
 
         ClearCanvas();
@@ -65,6 +65,14 @@ public class ColoringManager : MonoBehaviour
         }
         canvasTexture.SetPixels(clearColorArray);
         canvasTexture.Apply();
+    }
+
+    public void NextPicture()
+    {
+        pictureIndex++;
+
+        picture.sprite = pictures[pictureIndex];
+        InitializeCanvasTexture();
     }
 
     public void SetBrushSize(float newBrushSize)
