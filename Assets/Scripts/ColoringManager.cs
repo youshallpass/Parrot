@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class ColoringManager : MonoBehaviour
 {
-    [SerializeField] private Color color = Color.red;
     [SerializeField] private Sprite[] pictures;
     [SerializeField] private SpriteRenderer picture;
     [SerializeField] private SpriteRenderer paintLayer;
-    private int pictureIndex;
-    public float brushSize = 20f;
+    private Texture2D[] canvasTextures;
     private Texture2D canvasTexture;
+    private int pictureIndex;
+    
+    public float brushSize = 20f;
+    private Color color = Color.red;
+    
     private Vector2 previousTouchPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canvasTextures = new Texture2D[pictures.Length];
+
+        picture.sprite = pictures[0];
+
         InitializeCanvasTexture();
     }
 
@@ -46,9 +53,17 @@ public class ColoringManager : MonoBehaviour
 
     public void InitializeCanvasTexture()
     {
+        if (canvasTextures[pictureIndex] != null)
+        {
+            canvasTexture = canvasTextures[pictureIndex];
+            paintLayer.sprite = Sprite.Create(canvasTexture, new Rect(0, 0, canvasTexture.width, canvasTexture.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
+            return;
+        }
+
         Texture2D pictureData = picture.sprite.texture;
         canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
         canvasTexture.filterMode = FilterMode.Bilinear;
+        canvasTextures[pictureIndex] = canvasTexture;
 
         Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
         paintLayer.sprite = paintSprite;
@@ -70,14 +85,12 @@ public class ColoringManager : MonoBehaviour
     public void NextPicture()
     {
         pictureIndex++;
-
+        //if (pictureIndex >= pictures.Length)
+        //{
+        //    pictureIndex = 0;
+        //}
         picture.sprite = pictures[pictureIndex];
         InitializeCanvasTexture();
-    }
-
-    public void SetBrushSize(float newBrushSize)
-    {
-        brushSize = newBrushSize;
     }
 
     private void Paint(Vector2 touchPosition)
@@ -127,6 +140,11 @@ public class ColoringManager : MonoBehaviour
 
             Paint(position);
         }
+    }
+
+    public void SetBrushSize(float newBrushSize)
+    {
+        brushSize = newBrushSize;
     }
 
     public void SetColorRed()
