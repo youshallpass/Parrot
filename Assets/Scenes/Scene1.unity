@@ -148,10 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60c3df59185b1e49b362a22bd82cb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColoringManager
-  color: {r: 1, g: 0, b: 0, a: 1}
   pictures:
   - {fileID: 21300000, guid: 468033abd0bcbb54db4baff20b73ecda, type: 3}
   - {fileID: 21300000, guid: 77b0776036d25934a9f866b9f65873ee, type: 3}
+  - {fileID: 21300000, guid: 0f11980dbc519a544bd49b7c16049ee5, type: 3}
+  - {fileID: 21300000, guid: 133c1ff0cb48e6443b6cc46a533ceb78, type: 3}
+  - {fileID: 21300000, guid: 76051935cc9a6ea4981bce9c42f425aa, type: 3}
+  - {fileID: 21300000, guid: 75b8a7cc6af97cd46b48a4587b936d12, type: 3}
+  - {fileID: 21300000, guid: 8b019a709a9a43d44a2463590ae7920f, type: 3}
+  - {fileID: 21300000, guid: 0a93b1f6c1a440c449e788d7b6597dc8, type: 3}
+  - {fileID: 21300000, guid: 53ab4aa6daf61b44cbae19434719bc9d, type: 3}
+  - {fileID: 21300000, guid: 5d05e9382a62fc74da3abb86306d593b, type: 3}
+  - {fileID: 21300000, guid: 165722624195d0e4282e43fda4081e6a, type: 3}
   picture: {fileID: 834204064}
   paintLayer: {fileID: 1389998592}
   brushSize: 20
