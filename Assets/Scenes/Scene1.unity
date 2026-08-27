@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -772,6 +773,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16142cfdd81ca46f8ac6acd18ae44068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Kino.Aqua.Universal.Runtime::Kino.Aqua.Universal.AquaEffect
+  _opacity: 1
+  _edgeColor: {r: 0, g: 0, b: 0, a: 1}
+  _edgeContrast: 1.2
+  _fillColor: {r: 1, g: 1, b: 1, a: 1}
+  _blurWidth: 1
+  _blurFrequency: 0.5
+  _hueShift: 0.1
+  _interval: 1
+  _iteration: 20
+  _overlayMode: 0
+  _overlayTexture: {fileID: 0}
+  _overlayOpacity: 0
+  _shader: {fileID: -6465566751694194690, guid: 3e152a7c1e1bb4527901f4b4a55fbbc3, type: 3}
 --- !u!1 &618915769
 GameObject:
   m_ObjectHideFlags: 0
