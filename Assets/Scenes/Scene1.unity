@@ -780,7 +780,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16142cfdd81ca46f8ac6acd18ae44068, type: 3}
   m_Name: 
@@ -791,7 +791,7 @@ MonoBehaviour:
   _fillColor: {r: 1, g: 1, b: 1, a: 1}
   _blurWidth: 1
   _blurFrequency: 0.5
-  _hueShift: 0.1
+  _hueShift: 0
   _interval: 1
   _iteration: 20
   _overlayMode: 0
@@ -1832,7 +1832,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a0364612fb55dc499cf54015004d7b7, type: 2}
+  - {fileID: 2100000, guid: 0ef83d2c4c03f9348a947e3c4a07fca1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
