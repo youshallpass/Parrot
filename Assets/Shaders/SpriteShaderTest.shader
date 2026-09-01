@@ -13,16 +13,13 @@
         _NoiseScale("Noise Scale", Float) = 1.0
         _PaperScale("Paper Scale", Float) = 1.0
 
-        // Outline
-        _OutlineWidth("Outline Width", Range(0, 4)) = 1.5
-
         // Watercolor Wash
-        _WashAmount("Wash Amount", Range(0, 1)) = 0.3
-        _WashSize("Wash Size", Range(0, 0.05)) = 0.015
-        _WashNoise("Wash Noise", Range(0, 1)) = 0.5
+        _WashAmount("Wash Amount", Range(0, 2)) = 1
+        _WashSize("Wash Size", Range(0, 0.1)) = 0.01
+        _WashNoise("Wash Noise", Range(0, 1)) = 0
 
         // Color Saturation
-        _ColorSaturation("Color Saturation", range(0, 5)) = 2
+        _ColorSaturation("Color Saturation", Range(0, 5)) = 2
     }
 
     SubShader
@@ -83,8 +80,6 @@
 
                 float _NoiseScale;
                 float _PaperScale;
-
-                float _OutlineWidth;
 
                 float _WashAmount;
                 float _WashSize;
@@ -168,7 +163,6 @@
             float HtPattern(float2 pos, float2 noiseResolution)
             {
                 float4 random = GetRand(pos * 0.4 / 0.7, noiseResolution);
-
                 return saturate(pow(random.x + 0.3, 2.0) - 0.45);
             }
 
@@ -177,7 +171,6 @@
             float GetVal(float2 pos, float2 mainResolution)
             {
                 float3 c = GetCol(pos, mainResolution).rgb;
-
                 return length(c);
             }
 
@@ -368,7 +361,6 @@
                 // Paper Grain
 
                 float grain = GetRand(pos0 * 2.5, Res1).x;
-
                 watercolor += 0.15 * grain;
 
                 // Vignette
@@ -409,16 +401,7 @@
 
                 // Surrounding Paint
 
-                float surroundingAlpha = (
-                    alphaLeft +
-                    alphaRight +
-                    alphaUp +
-                    alphaDown +
-                    alphaUpLeft +
-                    alphaUpRight +
-                    alphaDownLeft +
-                    alphaDownRight
-                ) / 8.0;
+                float surroundingAlpha = (alphaLeft + alphaRight + alphaUp + alphaDown + alphaUpLeft + alphaUpRight + alphaDownLeft + alphaDownRight) / 8.0;
 
                 // Outside Paint Mask
 
@@ -432,32 +415,13 @@
 
                 // Wash Strength
 
-                float washStrength = washMask * washNoise * _WashAmount;
+                float washStrength = saturate(washMask * washNoise * _WashAmount);
 
-                // Color Bleeding
+                // Original Paint Color
 
-                float3 rawLeft = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv - washX).rgb;
-                float3 rawRight = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv + washX).rgb;
-                float3 rawUp = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv + washY).rgb;
-                float3 rawDown = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv - washY).rgb;
+                float3 washColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv).rgb;
 
-                float3 paintColor = (rawLeft + rawRight + rawUp + rawDown) * 0.25;
-
-                // Preserve Original Paint Color
-
-                float paintBrightness = dot(paintColor, float3(0.299, 0.587, 0.114));
-                float watercolorBrightness = dot(watercolor, float3(0.299, 0.587, 0.114));
-
-                float brightnessRatio = watercolorBrightness / max(paintBrightness, 0.001);
-                brightnessRatio = clamp(brightnessRatio, 0.5, 1.5);
-
-                float3 washColor = paintColor * brightnessRatio;
-
-                // Slightly Fade Toward White
-
-                washColor = lerp(washColor, float3(1.0, 1.0, 1.0), 0.15);
-
-                // Apply Colored Wash
+                // Apply Original Color
 
                 watercolor = lerp(watercolor, washColor, washStrength);
 
