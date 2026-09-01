@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteShaderTest_Material
-  m_Shader: {fileID: 4800000, guid: 723a49a259d26194ea32f49f7a7ab9a2, type: 3}
+  m_Name: KinoAquaSprite_Material
+  m_Shader: {fileID: 4800000, guid: 3067108a47f1e034e92320fc144bfbc8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -27,34 +27,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: e54d857b638a20d4b9cb74dbd4abfe56, type: 3}
+    - _NoiseTexture:
+        m_Texture: {fileID: 2800000, guid: 1357bff5b9371064ea290cbec0bbe5c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _PaperTex:
-        m_Texture: {fileID: 2800000, guid: cac6a537752807041aa62de1cd9a911d, type: 3}
+    - _OverlayTexture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorSaturation: 2
-    - _NoiseScale: 4
-    - _NoiseStrength: 0.35
-    - _OutlineStrength: 1
-    - _OutlineWidth: 0
-    - _PaperScale: 2
-    - _PaperStrength: 0.25
-    - _VignetteStrength: 1
-    - _WashAmount: 1
-    - _WashBlurWidth: 0.0104
-    - _WashFrequency: 0
-    - _WashIterations: 1
-    - _WashNoise: 0
-    - _WashRandomness: 0.798
-    - _WashSize: 0.01
-    - _WashStrength: 0.65
-    - _WatercolorStrength: 1
+    - _Bleed: 4
+    - _BleedNoise: 0.5
+    - _BleedOpacity: 0.45
+    - _BlurFrequency: 0.5
+    - _BlurWidth: 1
+    - _EdgeContrast: 1.2
+    - _HueShift: 0.1
+    - _Interval: 1
+    - _Iteration: 20
+    - _Opacity: 1
+    - _OverlayMode: 0
+    - _OverlayOpacity: 0
+    - _Spread: 20
+    - _SpreadFalloff: 0.1
+    - _SpreadSamples: 4.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
