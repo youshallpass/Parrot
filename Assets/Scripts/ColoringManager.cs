@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColoringManager : MonoBehaviour
 {
     [SerializeField] private Sprite[] pictures;
-    [SerializeField] private SpriteRenderer picture;
+    [SerializeField] private Image picture;
     [SerializeField] private SpriteRenderer paintLayer;
     private Texture2D[] canvasTextures;
     private Texture2D canvasTexture;
@@ -98,13 +99,13 @@ public class ColoringManager : MonoBehaviour
         Vector3 screenPosition = new Vector3(touchPosition.x, touchPosition.y, -Camera.main.transform.position.z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-        if (!picture.bounds.Contains(worldPosition))
+        if (!picture.sprite.bounds.Contains(worldPosition))
         {
             return;
         }
 
-        float x = Mathf.InverseLerp(picture.bounds.min.x, picture.bounds.max.x, worldPosition.x);
-        float y = Mathf.InverseLerp(picture.bounds.min.y, picture.bounds.max.y, worldPosition.y);
+        float x = Mathf.InverseLerp(picture.sprite.bounds.min.x, picture.sprite.bounds.max.x, worldPosition.x);
+        float y = Mathf.InverseLerp(picture.sprite.bounds.min.y, picture.sprite.bounds.max.y, worldPosition.y);
 
         int pixelX = Mathf.RoundToInt(x * canvasTexture.width);
         int pixelY = Mathf.RoundToInt(y * canvasTexture.height);
