@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColoringManager : MonoBehaviour
 {
     [SerializeField] private Sprite[] pictures;
-    [SerializeField] private SpriteRenderer picture;
+    [SerializeField] private Image picture;
     [SerializeField] private SpriteRenderer paintLayer;
     private Texture2D[] canvasTextures;
     private Texture2D canvasTexture;
@@ -68,6 +69,8 @@ public class ColoringManager : MonoBehaviour
         Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
         paintLayer.sprite = paintSprite;
 
+        Debug.Log($"Size{paintSprite.bounds}");
+
         ClearCanvas();
     }
 
@@ -85,10 +88,10 @@ public class ColoringManager : MonoBehaviour
     public void NextPicture()
     {
         pictureIndex++;
-        //if (pictureIndex >= pictures.Length)
-        //{
-        //    pictureIndex = 0;
-        //}
+        if (pictureIndex >= pictures.Length)
+        {
+            pictureIndex = 0;
+        }
         picture.sprite = pictures[pictureIndex];
         InitializeCanvasTexture();
     }
@@ -98,13 +101,19 @@ public class ColoringManager : MonoBehaviour
         Vector3 screenPosition = new Vector3(touchPosition.x, touchPosition.y, -Camera.main.transform.position.z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-        if (!picture.bounds.Contains(worldPosition))
+        Bounds bounds = picture.sprite.bounds;
+        Vector3 boundsSize = bounds.size;
+        boundsSize.x /= 1.75f;
+        boundsSize.y /= 1.6f;
+        bounds = new Bounds(bounds.center, boundsSize);
+
+        if (!bounds.Contains(worldPosition))
         {
             return;
         }
 
-        float x = Mathf.InverseLerp(picture.bounds.min.x, picture.bounds.max.x, worldPosition.x);
-        float y = Mathf.InverseLerp(picture.bounds.min.y, picture.bounds.max.y, worldPosition.y);
+        float x = Mathf.InverseLerp(picture.sprite.bounds.min.x, picture.sprite.bounds.max.x, worldPosition.x);
+        float y = Mathf.InverseLerp(picture.sprite.bounds.min.y, picture.sprite.bounds.max.y, worldPosition.y);
 
         int pixelX = Mathf.RoundToInt(x * canvasTexture.width);
         int pixelY = Mathf.RoundToInt(y * canvasTexture.height);
