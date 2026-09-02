@@ -69,6 +69,8 @@ public class ColoringManager : MonoBehaviour
         Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
         paintLayer.sprite = paintSprite;
 
+        Debug.Log($"Size{paintSprite.bounds}");
+
         ClearCanvas();
     }
 
@@ -86,10 +88,10 @@ public class ColoringManager : MonoBehaviour
     public void NextPicture()
     {
         pictureIndex++;
-        //if (pictureIndex >= pictures.Length)
-        //{
-        //    pictureIndex = 0;
-        //}
+        if (pictureIndex >= pictures.Length)
+        {
+            pictureIndex = 0;
+        }
         picture.sprite = pictures[pictureIndex];
         InitializeCanvasTexture();
     }
@@ -99,7 +101,13 @@ public class ColoringManager : MonoBehaviour
         Vector3 screenPosition = new Vector3(touchPosition.x, touchPosition.y, -Camera.main.transform.position.z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-        if (!picture.sprite.bounds.Contains(worldPosition))
+        Bounds bounds = picture.sprite.bounds;
+        Vector3 boundsSize = bounds.size;
+        boundsSize.x /= 1.75f;
+        boundsSize.y /= 1.6f;
+        bounds = new Bounds(bounds.center, boundsSize);
+
+        if (!bounds.Contains(worldPosition))
         {
             return;
         }
