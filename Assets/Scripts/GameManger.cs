@@ -99,30 +99,40 @@ public class GameManger : MonoBehaviour
 
     IEnumerator NextPicture()
     {
-        yield return new WaitForEndOfFrame();
+        //foreach (GameObject go in uiObjects)
+        //{
+        //    go.SetActive(false);
+        //}
 
-        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+        //yield return new WaitForEndOfFrame();
 
-        Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.ARGB32, false);
-        newScreenshot.SetPixels(screenshot.GetPixels());
-        newScreenshot.Apply();
+        //Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
 
-        Destroy(screenshot);
+        //Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.ARGB32, false);
+        //newScreenshot.SetPixels(screenshot.GetPixels());
+        //newScreenshot.Apply();
 
-        Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
+        //Destroy(screenshot);
 
-        whereToShowScreenshot.enabled = true;
-        whereToShowScreenshot.sprite = screenshotSprite;
+        //Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
 
-        coloringManager.NextPicture();
+        //whereToShowScreenshot.enabled = true;
+        //whereToShowScreenshot.sprite = screenshotSprite;
 
         transition.SetTrigger("Start");
+        
+        yield return new WaitForSeconds(1);
+        coloringManager.NextPicture();
 
         transition.SetTrigger("End");
 
-        yield return new WaitForSeconds(1);
 
-        whereToShowScreenshot.enabled = false;
+        //whereToShowScreenshot.enabled = false;
+
+        //foreach (GameObject go in uiObjects)
+        //{
+        //    go.SetActive(true);
+        //}
 
         NextPictureRunning = false;
     }
