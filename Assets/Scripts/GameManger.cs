@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class GameManger : MonoBehaviour
 {
     [SerializeField] AudioSource narrationAudioSource;
+    [SerializeField] ColoringManager coloringManager;
+    [SerializeField] Animator transition;
+    public float transitionTime = 2f;
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
     private GameObject[] mainMenuObjects;
@@ -80,5 +83,21 @@ public class GameManger : MonoBehaviour
             narrationOn = true;
             UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color = Color.blue;
         }
+    }
+
+    public void LoadNextPicture()
+    {
+        StartCoroutine(NextPicture());
+    }
+
+    IEnumerator NextPicture()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(2);
+
+        coloringManager.NextPicture();
+
+        transition.SetTrigger("End");
     }
 }

@@ -69,8 +69,6 @@ public class ColoringManager : MonoBehaviour
         Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
         paintLayer.sprite = paintSprite;
 
-        Debug.Log($"Size{paintSprite.bounds}");
-
         ClearCanvas();
     }
 
