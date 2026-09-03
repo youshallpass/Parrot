@@ -7,11 +7,14 @@ public class GameManger : MonoBehaviour
     [SerializeField] AudioSource narrationAudioSource;
     [SerializeField] ColoringManager coloringManager;
     [SerializeField] Animator transition;
+    [SerializeField] Image whereToShowScreenshot;
     public float transitionTime = 2f;
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
     private GameObject[] mainMenuObjects;
     private bool narrationOn = false;
+    private bool NextPictureRunning;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,7 +36,7 @@ public class GameManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OpenInfoScreen()
@@ -43,12 +46,12 @@ public class GameManger : MonoBehaviour
 
     public void StartGame()
     {
-        foreach(GameObject go in paintingObjects)
+        foreach (GameObject go in paintingObjects)
         {
             go.SetActive(true);
         }
 
-        foreach(GameObject go in uiObjects)
+        foreach (GameObject go in uiObjects)
         {
             go.SetActive(true);
         }
@@ -87,17 +90,40 @@ public class GameManger : MonoBehaviour
 
     public void LoadNextPicture()
     {
-        StartCoroutine(NextPicture());
+        if (!NextPictureRunning)
+        {
+            NextPictureRunning = true;
+            StartCoroutine(NextPicture());
+        }
     }
 
     IEnumerator NextPicture()
     {
-        transition.SetTrigger("Start");
+        yield return new WaitForEndOfFrame();
 
-        yield return new WaitForSeconds(2);
+        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+
+        Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.ARGB32, false);
+        newScreenshot.SetPixels(screenshot.GetPixels());
+        newScreenshot.Apply();
+
+        Destroy(screenshot);
+
+        Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
+
+        whereToShowScreenshot.enabled = true;
+        whereToShowScreenshot.sprite = screenshotSprite;
 
         coloringManager.NextPicture();
 
+        transition.SetTrigger("Start");
+
         transition.SetTrigger("End");
+
+        yield return new WaitForSeconds(1);
+
+        whereToShowScreenshot.enabled = false;
+
+        NextPictureRunning = false;
     }
 }
