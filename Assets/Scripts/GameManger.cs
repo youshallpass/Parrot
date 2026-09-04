@@ -44,8 +44,17 @@ public class GameManger : MonoBehaviour
 
     }
 
-    public void StartGame()
+    public void StartGamePress()
     {
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
         foreach (GameObject go in paintingObjects)
         {
             go.SetActive(true);
@@ -60,6 +69,8 @@ public class GameManger : MonoBehaviour
         {
             go.SetActive(false);
         }
+
+        transition.SetTrigger("End");
 
         StartCoroutine(StartNarration());
     }
@@ -99,6 +110,18 @@ public class GameManger : MonoBehaviour
 
     IEnumerator NextPicture()
     {
+        //Fade transition
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+        coloringManager.NextPicture();
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
+
+
+        //PageFlip Transition
         //foreach (GameObject go in uiObjects)
         //{
         //    go.SetActive(false);
@@ -119,13 +142,13 @@ public class GameManger : MonoBehaviour
         //whereToShowScreenshot.enabled = true;
         //whereToShowScreenshot.sprite = screenshotSprite;
 
-        transition.SetTrigger("Start");
-        
-        yield return new WaitForSeconds(1);
-        coloringManager.NextPicture();
+        //coloringManager.NextPicture();
 
-        transition.SetTrigger("End");
+        //transition.SetTrigger("Start");
 
+        //transition.SetTrigger("End");
+
+        //yield return new WaitForSeconds(1);
 
         //whereToShowScreenshot.enabled = false;
 
@@ -134,6 +157,6 @@ public class GameManger : MonoBehaviour
         //    go.SetActive(true);
         //}
 
-        NextPictureRunning = false;
+        //NextPictureRunning = false;
     }
 }
