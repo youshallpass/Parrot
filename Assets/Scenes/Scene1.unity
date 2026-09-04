@@ -1153,7 +1153,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &725931386
 RectTransform:
@@ -1752,7 +1752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146921194}
         m_TargetAssemblyTypeName: GameManger, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: StartGamePress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2059,7 +2059,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!95 &1212922554
 Animator:
