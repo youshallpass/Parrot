@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class GameManger : MonoBehaviour
     private GameObject[] mainMenuObjects;
     private bool narrationOn = false;
     private bool NextPictureRunning;
+    private int pictureIndex = 0;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +36,7 @@ public class GameManger : MonoBehaviour
 
         foreach (GameObject go in uiObjects)
         {
+            DontDestroyOnLoad(go);
             go.SetActive(false);
         }
     }
@@ -104,6 +112,11 @@ public class GameManger : MonoBehaviour
         if (!NextPictureRunning)
         {
             NextPictureRunning = true;
+            pictureIndex++;
+            if (pictureIndex >= coloringManager.pictures.Length)
+            {
+                StartCoroutine(NextScene());
+            }
             StartCoroutine(NextPicture());
         }
     }
@@ -114,7 +127,7 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
-        coloringManager.NextPicture();
+        coloringManager.NextPicture(pictureIndex);
 
         transition.SetTrigger("End");
 
@@ -158,5 +171,19 @@ public class GameManger : MonoBehaviour
         //}
 
         //NextPictureRunning = false;
+    }
+
+    IEnumerator NextScene()
+    {
+        //Fade transition
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
+        Object.Destroy(GameObject.Find("NextDrawingButton"));
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
     }
 }

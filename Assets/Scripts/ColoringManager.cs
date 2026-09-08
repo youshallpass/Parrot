@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class ColoringManager : MonoBehaviour
 {
-    [SerializeField] private Sprite[] pictures;
+    [SerializeField] public Sprite[] pictures;
     [SerializeField] private Image picture;
     [SerializeField] private SpriteRenderer paintLayer;
     private Texture2D[] canvasTextures;
     private Texture2D canvasTexture;
-    private int pictureIndex;
+    private int pictureIndex = 0;
     
     public float brushSize = 20f;
     private Color color = Color.red;
@@ -83,9 +83,9 @@ public class ColoringManager : MonoBehaviour
         canvasTexture.Apply();
     }
 
-    public void NextPicture()
+    public void NextPicture(int index)
     {
-        pictureIndex++;
+        pictureIndex = index;
         if (pictureIndex >= pictures.Length)
         {
             pictureIndex = 0;
