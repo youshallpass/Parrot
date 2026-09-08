@@ -7,9 +7,9 @@ public class GameManger : MonoBehaviour
 {
     [SerializeField] AudioSource narrationAudioSource;
     [SerializeField] ColoringManager coloringManager;
+    [SerializeField] PeopleImageManager peopleImageManager;
     [SerializeField] Animator transition;
     [SerializeField] Image whereToShowScreenshot;
-    public float transitionTime = 2f;
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
     private GameObject[] mainMenuObjects;
@@ -128,6 +128,7 @@ public class GameManger : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         coloringManager.NextPicture(pictureIndex);
+        peopleImageManager.ChangeImageAndAnimations(pictureIndex);
 
         transition.SetTrigger("End");
 

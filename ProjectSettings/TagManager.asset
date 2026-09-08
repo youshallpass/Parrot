@@ -7,6 +7,7 @@ TagManager:
   - Painting
   - UI
   - MainMenu
+  - BodyPart
   layers:
   - Default
   - TransparentFX
