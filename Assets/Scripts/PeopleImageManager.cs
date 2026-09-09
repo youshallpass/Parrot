@@ -41,6 +41,17 @@ public class PeopleImageManager : MonoBehaviour
                 PeopleAnimator.SetTrigger("Case1");
                 break;
 
+            case 2:
+                peopleImage.sprite = peopleSprites[imageIndex];
+                peopleImage.rectTransform.pivot = new Vector2(0.5f, 0f);
+                peopleImage.rectTransform.sizeDelta = new Vector2(471, 1200);
+                peopleImage.rectTransform.anchoredPosition = new Vector3(-900, -650);
+                foreach (GameObject go in bodyParts)
+                {
+                    go.SetActive(false);
+                }
+                PeopleAnimator.SetTrigger("Case2");
+                break;
         }
     }
 }
