@@ -728,7 +728,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1279494975}
-  - {fileID: 2105359574}
   m_Father: {fileID: 1614284501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -808,11 +807,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cb3bc29eb6f9540bed1d0124d540fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PeopleImageManager
+  people:
+  - {fileID: 11400000, guid: 7a776176116d24244a091952ae3f3beb, type: 2}
+  - {fileID: 11400000, guid: 4324e5971bff8ef40abb1e491d61521a, type: 2}
+  - {fileID: 11400000, guid: ea270fbd13b6f0040b285667b304ab6a, type: 2}
   PeopleAnimator: {fileID: 741003977}
-  peopleSprites:
-  - {fileID: 21300000, guid: e4da7a5aa87f4c947b015196344449c3, type: 3}
-  - {fileID: 21300000, guid: ac1da45e65706cf4c9e1dbe4df76d35e, type: 3}
-  - {fileID: 21300000, guid: 2352bad61f263084e9ad1e31a067e0dd, type: 3}
+  bodyPart: {fileID: 1279494974}
 --- !u!1 &897555859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 1279494977}
   - component: {fileID: 1279494976}
   m_Layer: 5
-  m_Name: Bodypart1
+  m_Name: Bodypart
   m_TagString: BodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1510,7 +1510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8321102221490951993, guid: c5161545d24e0fe449c8ca7c32247699, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de409349353cda24aacf2e2e7847e365, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2580,81 +2580,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2105359573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2105359574}
-  - component: {fileID: 2105359576}
-  - component: {fileID: 2105359575}
-  m_Layer: 5
-  m_Name: Bodypart2
-  m_TagString: BodyPart
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2105359574
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105359573}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 741003974}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 115.5}
-  m_SizeDelta: {x: 113, y: 139}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!114 &2105359575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105359573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -1483407423975865499, guid: 31851d9e0b5f2264285e88502d3c1e58, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2105359576
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105359573}
-  m_CullTransparentMesh: 1
 --- !u!1 &2106290671
 GameObject:
   m_ObjectHideFlags: 0
