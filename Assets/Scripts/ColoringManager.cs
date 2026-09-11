@@ -61,6 +61,8 @@ public class ColoringManager : MonoBehaviour
             return;
         }
 
+        picture.rectTransform.sizeDelta = picture.sprite.rect.size;
+
         Texture2D pictureData = picture.sprite.texture;
         canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
         canvasTexture.filterMode = FilterMode.Bilinear;
@@ -86,10 +88,10 @@ public class ColoringManager : MonoBehaviour
     public void NextPicture(int index)
     {
         pictureIndex = index;
-        if (pictureIndex >= pictures.Length)
-        {
-            pictureIndex = 0;
-        }
+        //if (pictureIndex >= pictures.Length)
+        //{
+        //    pictureIndex = 0;
+        //}
         picture.sprite = pictures[pictureIndex];
         InitializeCanvasTexture();
     }

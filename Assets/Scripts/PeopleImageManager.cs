@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,6 +70,22 @@ public class PeopleImageManager : MonoBehaviour
         else
         {
             PeopleAnimator.SetLayerWeight(1, 0f);
+        }
+
+        StopCoroutine(AnimationLoop());
+        
+        StartCoroutine(AnimationLoop());
+    }
+
+    public IEnumerator AnimationLoop()
+    {
+        while (true)
+        {
+            PeopleAnimator.enabled = true;
+            yield return new WaitForSeconds(10f);
+
+            PeopleAnimator.enabled = false;
+            yield return new WaitForSeconds(10f);
         }
     }
 }

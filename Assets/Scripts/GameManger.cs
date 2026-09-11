@@ -80,6 +80,8 @@ public class GameManger : MonoBehaviour
 
         transition.SetTrigger("End");
 
+        StartCoroutine(peopleImageManager.AnimationLoop());
+        
         StartCoroutine(StartNarration());
     }
 
