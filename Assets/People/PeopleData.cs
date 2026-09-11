@@ -10,15 +10,25 @@ public class PeopleData : ScriptableObject
     public Vector2 sizeDelta;
     public Vector2 anchoredPosition;
 
-    [Header("Body Part")]
-    public bool bodyPartActive;
+    [Header("Body Part 1")]
+    public bool bodyPartActive1;
 
-    public Sprite bodyPartSprite;
+    public Sprite bodyPartSprite1;
 
-    public Vector2 bodyPartPivot;
-    public Vector2 bodyPartSizeDelta;
-    public Vector2 bodyPartAnchoredPosition;
+    public Vector2 bodyPartPivot1;
+    public Vector2 bodyPartSizeDelta1;
+    public Vector2 bodyPartAnchoredPosition1;
+
+    [Header("Body Part 2")]
+    public bool bodyPartActive2;
+
+    public Sprite bodyPartSprite2;
+
+    public Vector2 bodyPartPivot2;
+    public Vector2 bodyPartSizeDelta2;
+    public Vector2 bodyPartAnchoredPosition2;
 
     [Header("Animation")]
     public string animationTrigger;
+    public bool multipleAnimations;
 }

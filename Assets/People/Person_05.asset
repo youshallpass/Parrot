@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970cacf5f680fb44baf464e6fb3042cf, type: 3}
+  m_Name: Person_05
+  m_EditorClassIdentifier: Assembly-CSharp::PeopleData
+  sprite: {fileID: 21300000, guid: b87c7106a97109d4a9ea43059a6fec20, type: 3}
+  pivot: {x: 0.5, y: 0.5}
+  sizeDelta: {x: 763, y: 1000}
+  anchoredPosition: {x: -700, y: -100}
+  bodyPartActive1: 1
+  bodyPartSprite1: {fileID: 21300000, guid: 208a76fcbaf5506489c99a4daa6ca4f8, type: 3}
+  bodyPartPivot1: {x: 0.5, y: 0.5}
+  bodyPartSizeDelta1: {x: 419, y: 581}
+  bodyPartAnchoredPosition1: {x: -150, y: 150}
+  bodyPartActive2: 0
+  bodyPartSprite2: {fileID: 0}
+  bodyPartPivot2: {x: 0, y: 0}
+  bodyPartSizeDelta2: {x: 0, y: 0}
+  bodyPartAnchoredPosition2: {x: 0, y: 0}
+  animationTrigger: Person5
+  multipleAnimations: 0

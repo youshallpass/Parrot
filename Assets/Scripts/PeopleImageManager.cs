@@ -5,7 +5,11 @@ public class PeopleImageManager : MonoBehaviour
 {
     [SerializeField] PeopleData[] people;
     [SerializeField] Animator PeopleAnimator;
-    [SerializeField] private GameObject bodyPart;
+    [SerializeField] GameObject bodyPart1;
+    [SerializeField] GameObject bodyPart2;
+    [SerializeField] RectTransform peoplePosition;
+    [SerializeField] RectTransform bodypartPosition1;
+    [SerializeField] RectTransform bodypartPosition2;
     private Image peopleImage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,7 +17,8 @@ public class PeopleImageManager : MonoBehaviour
     {
         peopleImage = GetComponent<Image>();
         ChangeImageAndAnimations(0);
-        bodyPart.SetActive(false);
+        bodyPart1.SetActive(false);
+        bodyPart2.SetActive(false);
     }
 
     public void ChangeImageAndAnimations(int imageIndex)
@@ -25,23 +30,45 @@ public class PeopleImageManager : MonoBehaviour
         RectTransform rectPerson = peopleImage.rectTransform;
         rectPerson.pivot = person.pivot;
         rectPerson.sizeDelta = person.sizeDelta;
-        rectPerson.anchoredPosition = person.anchoredPosition;
+        peoplePosition.anchoredPosition = person.anchoredPosition;
 
-        bodyPart.SetActive(person.bodyPartActive);
+        bodyPart1.SetActive(person.bodyPartActive1);
 
-        if (person.bodyPartSprite != null)
+        if (person.bodyPartSprite1 != null)
         {
-            bodyPart.GetComponent<Image>().sprite = person.bodyPartSprite;
+            bodyPart1.GetComponent<Image>().sprite = person.bodyPartSprite1;
 
-            RectTransform rectBodyPart = bodyPart.GetComponent<Image>().rectTransform;
-            rectBodyPart.pivot = person.bodyPartPivot;
-            rectBodyPart.sizeDelta = person.bodyPartSizeDelta;
-            rectBodyPart.anchoredPosition = person.bodyPartAnchoredPosition;
+            RectTransform rectBodyPart1 = bodyPart1.GetComponent<Image>().rectTransform;
+            rectBodyPart1.pivot = person.bodyPartPivot1;
+            rectBodyPart1.sizeDelta = person.bodyPartSizeDelta1;
+            bodypartPosition1.anchoredPosition = person.bodyPartAnchoredPosition1;
+        }
+
+        bodyPart2.SetActive(person.bodyPartActive2);
+
+        if (person.bodyPartSprite2 != null)
+        {
+            bodyPart2.GetComponent<Image>().sprite = person.bodyPartSprite2;
+
+            RectTransform rectBodyPart2 = bodyPart2.GetComponent<Image>().rectTransform;
+            rectBodyPart2.pivot = person.bodyPartPivot2;
+            rectBodyPart2.sizeDelta = person.bodyPartSizeDelta2;
+            bodypartPosition2.anchoredPosition = person.bodyPartAnchoredPosition2;
+
         }
 
         if (!string.IsNullOrEmpty(person.animationTrigger))
         {
             PeopleAnimator.SetTrigger(person.animationTrigger);
+        }
+
+        if (person.multipleAnimations)
+        {
+            PeopleAnimator.SetLayerWeight(1, 1f);
+        }
+        else
+        {
+            PeopleAnimator.SetLayerWeight(1, 0f);
         }
     }
 }

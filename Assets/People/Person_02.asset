@@ -10,15 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 970cacf5f680fb44baf464e6fb3042cf, type: 3}
-  m_Name: Person2
+  m_Name: Person_02
   m_EditorClassIdentifier: Assembly-CSharp::PeopleData
   sprite: {fileID: 21300000, guid: 2352bad61f263084e9ad1e31a067e0dd, type: 3}
   pivot: {x: 0.5, y: 0}
   sizeDelta: {x: 471, y: 1200}
-  anchoredPosition: {x: -900, y: -650}
-  bodyPartActive: 0
-  bodyPartSprite: {fileID: 0}
-  bodyPartPivot: {x: 0, y: 0}
-  bodyPartSizeDelta: {x: 0, y: 0}
-  bodyPartAnchoredPosition: {x: 0, y: 0}
+  anchoredPosition: {x: -700, y: -700}
+  bodyPartActive1: 0
+  bodyPartSprite1: {fileID: 0}
+  bodyPartPivot1: {x: 0, y: 0}
+  bodyPartSizeDelta1: {x: 0, y: 0}
+  bodyPartAnchoredPosition1: {x: 0, y: 0}
+  bodyPartActive2: 0
+  bodyPartSprite2: {fileID: 0}
+  bodyPartPivot2: {x: 0, y: 0}
+  bodyPartSizeDelta2: {x: 0, y: 0}
+  bodyPartAnchoredPosition2: {x: 0, y: 0}
   animationTrigger: Person2
+  multipleAnimations: 0
