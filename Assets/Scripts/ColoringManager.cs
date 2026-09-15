@@ -21,7 +21,7 @@ public class ColoringManager : MonoBehaviour
         canvasTextures = new Texture2D[pictures.Length];
 
         picture.sprite = pictures[0];
-
+        
         InitializeCanvasTexture();
     }
 
@@ -61,8 +61,6 @@ public class ColoringManager : MonoBehaviour
             return;
         }
 
-        picture.rectTransform.sizeDelta = picture.sprite.rect.size;
-
         Texture2D pictureData = picture.sprite.texture;
         canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
         canvasTexture.filterMode = FilterMode.Bilinear;
@@ -93,6 +91,7 @@ public class ColoringManager : MonoBehaviour
         //    pictureIndex = 0;
         //}
         picture.sprite = pictures[pictureIndex];
+        picture.rectTransform.sizeDelta = picture.sprite.rect.size;
         InitializeCanvasTexture();
     }
 
@@ -102,10 +101,10 @@ public class ColoringManager : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
         Bounds bounds = picture.sprite.bounds;
-        Vector3 boundsSize = bounds.size;
-        boundsSize.x /= 1.75f;
-        boundsSize.y /= 1.6f;
-        bounds = new Bounds(bounds.center, boundsSize);
+        //Vector3 boundsSize = bounds.size;
+        //boundsSize.x /= 1.75f;
+        //boundsSize.y /= 1.6f;
+        //bounds = new Bounds(bounds.center, boundsSize);
 
         if (!bounds.Contains(worldPosition))
         {
