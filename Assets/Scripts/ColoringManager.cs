@@ -9,10 +9,10 @@ public class ColoringManager : MonoBehaviour
     private Texture2D[] canvasTextures;
     private Texture2D canvasTexture;
     private int pictureIndex = 0;
-    
+
     public float brushSize = 20f;
     private Color color = Color.red;
-    
+
     private Vector2 previousTouchPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +21,7 @@ public class ColoringManager : MonoBehaviour
         canvasTextures = new Texture2D[pictures.Length];
 
         picture.sprite = pictures[0];
-        
+
         InitializeCanvasTexture();
     }
 
@@ -70,6 +70,54 @@ public class ColoringManager : MonoBehaviour
         paintLayer.sprite = paintSprite;
 
         ClearCanvas();
+        Canvas.ForceUpdateCanvases();
+        UpdatePaintLayerToPicture();
+    }
+
+    private void UpdatePaintLayerToPicture()
+    {
+        if (picture == null || paintLayer == null || paintLayer.sprite == null)
+        {
+            return;
+        }
+
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            Debug.LogError("ColoringManager: No Main Camera found.");
+            return;
+        }
+
+        RectTransform pictureRect = picture.rectTransform;
+
+        // Get the actual corners of the UI Image after Canvas scaling.
+        Vector3[] corners = new Vector3[4]; pictureRect.GetWorldCorners(corners);
+
+        // Screen Space Overlay does not use a camera.
+        Vector2 bottomLeftScreen = RectTransformUtility.WorldToScreenPoint(null, corners[0]);
+        Vector2 topRightScreen = RectTransformUtility.WorldToScreenPoint(null, corners[2]);
+
+        // Determine how far the paint layer is from the camera.
+        float distanceFromCamera = Mathf.Abs(camera.transform.position.z - paintLayer.transform.position.z);
+
+        // Convert the UI corners from screen coordinates to world coordinates.
+        Vector3 bottomLeftWorld = camera.ScreenToWorldPoint(new Vector3(bottomLeftScreen.x, bottomLeftScreen.y, distanceFromCamera));
+        Vector3 topRightWorld = camera.ScreenToWorldPoint(new Vector3(topRightScreen.x, topRightScreen.y, distanceFromCamera));
+
+        // The actual world-space size occupied by the UI Image.
+        Vector2 targetWorldSize = new Vector2(Mathf.Abs(topRightWorld.x - bottomLeftWorld.x), Mathf.Abs(topRightWorld.y - bottomLeftWorld.y));
+
+        // The SpriteRenderer's original size before its Transform scale.
+        Vector2 spriteSize = paintLayer.sprite.bounds.size;
+
+        // Calculate the scale required to make the SpriteRenderer exactly the same size as the UI Image.
+        float scaleX = targetWorldSize.x / spriteSize.x;
+        float scaleY = targetWorldSize.y / spriteSize.y;
+        paintLayer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
+
+        // Put the SpriteRenderer at the center of the UI Image.
+        Vector3 worldCenter = (bottomLeftWorld + topRightWorld) * 0.5f;
+        paintLayer.transform.position = new Vector3(worldCenter.x, worldCenter.y, paintLayer.transform.position.z);
     }
 
     private void ClearCanvas()
@@ -86,10 +134,6 @@ public class ColoringManager : MonoBehaviour
     public void NextPicture(int index)
     {
         pictureIndex = index;
-        //if (pictureIndex >= pictures.Length)
-        //{
-        //    pictureIndex = 0;
-        //}
         picture.sprite = pictures[pictureIndex];
         picture.rectTransform.sizeDelta = picture.sprite.rect.size;
         InitializeCanvasTexture();
@@ -100,19 +144,14 @@ public class ColoringManager : MonoBehaviour
         Vector3 screenPosition = new Vector3(touchPosition.x, touchPosition.y, -Camera.main.transform.position.z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-        Bounds bounds = picture.sprite.bounds;
-        //Vector3 boundsSize = bounds.size;
-        //boundsSize.x /= 1.75f;
-        //boundsSize.y /= 1.6f;
-        //bounds = new Bounds(bounds.center, boundsSize);
-
+        Bounds bounds = paintLayer.bounds;
         if (!bounds.Contains(worldPosition))
         {
             return;
         }
 
-        float x = Mathf.InverseLerp(picture.sprite.bounds.min.x, picture.sprite.bounds.max.x, worldPosition.x);
-        float y = Mathf.InverseLerp(picture.sprite.bounds.min.y, picture.sprite.bounds.max.y, worldPosition.y);
+        float x = Mathf.InverseLerp(bounds.min.x, bounds.max.x, worldPosition.x);
+        float y = Mathf.InverseLerp(bounds.min.y, bounds.max.y, worldPosition.y);
 
         int pixelX = Mathf.RoundToInt(x * canvasTexture.width);
         int pixelY = Mathf.RoundToInt(y * canvasTexture.height);
@@ -120,7 +159,7 @@ public class ColoringManager : MonoBehaviour
         int size = Mathf.RoundToInt(brushSize);
         int radius = size / 2;
 
-        for (int i = -radius; i < radius;  i++)
+        for (int i = -radius; i < radius; i++)
         {
             for (int j = -radius; j < radius; j++)
             {
