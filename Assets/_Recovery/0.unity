@@ -162,10 +162,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 165722624195d0e4282e43fda4081e6a, type: 3}
   picture: {fileID: 626387155}
   paintLayer: {fileID: 1389998592}
-  mainMask:
-  - {fileID: 2800000, guid: bd0a83d5f9278b046b408c3cc07bacad, type: 3}
-  removableMask:
-  - {fileID: 2800000, guid: bf79d487d05b30944a0771a06706c7c4, type: 3}
+  mask: {fileID: 2800000, guid: cb8b8fb5e0068f444ae555961cfc79b0, type: 3}
+  mask2: {fileID: 2800000, guid: 259c11243ea91c84090f9147cb244538, type: 3}
   brushSize: 20
 --- !u!4 &61961479
 Transform:
@@ -621,7 +619,7 @@ RectTransform:
   m_GameObject: {fileID: 626387153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 897555863}
@@ -1392,10 +1390,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManger
   narrationAudioSource: {fileID: 2106290672}
+  coloringManager: {fileID: 61961478}
+  peopleImageManager: {fileID: 741003978}
   transition: {fileID: 1212922554}
   whereToShowScreenshot: {fileID: 465745958}
-  peopleImageManager: {fileID: 741003978}
-  coloringManager: {fileID: 61961478}
 --- !u!4 &1146921195
 Transform:
   m_ObjectHideFlags: 0

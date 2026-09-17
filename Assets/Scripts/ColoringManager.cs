@@ -3,14 +3,22 @@ using UnityEngine.UI;
 
 public class ColoringManager : MonoBehaviour
 {
+    [Header("Lineart")]
     [SerializeField] public Sprite[] pictures;
     [SerializeField] private Image picture;
+
+    [Header("Paintlayer & Masks")]
     [SerializeField] private SpriteRenderer paintLayer;
-    private Texture2D[] canvasTextures;
+    [SerializeField] private Texture2D[] mainMask;
+    [SerializeField] private Texture2D[] removableMask;
+
+    [Header("Brush Settings")]
+    public float brushSize = 20f;
+
     private Texture2D canvasTexture;
+    private Texture2D[] canvasTextures;
     private int pictureIndex = 0;
 
-    public float brushSize = 20f;
     private Color color = Color.red;
 
     private Vector2 previousTouchPosition;
@@ -133,10 +141,29 @@ public class ColoringManager : MonoBehaviour
 
     public void NextPicture(int index)
     {
+        //ClearMaskPaint();
         pictureIndex = index;
         picture.sprite = pictures[pictureIndex];
         picture.rectTransform.sizeDelta = picture.sprite.rect.size;
         InitializeCanvasTexture();
+    }
+
+    public void ClearMaskPaint()
+    {
+        for (int x = 0; x < canvasTexture.width; x++)
+        {
+            for (int y = 0; y < canvasTexture.height; y++)
+            {
+                Color maskPixel = removableMask[pictureIndex].GetPixel(x, y);
+
+                if (maskPixel.a > 0)
+                {
+                    canvasTexture.SetPixel(x, y, Color.clear);
+                }
+            }
+        }
+
+        canvasTexture.Apply();
     }
 
     private void Paint(Vector2 touchPosition)
@@ -167,7 +194,14 @@ public class ColoringManager : MonoBehaviour
                 {
                     if (pixelX + i >= 0 && pixelX + i < canvasTexture.width && pixelY + j >= 0 && pixelY + j < canvasTexture.height)
                     {
-                        canvasTexture.SetPixel(pixelX + i, pixelY + j, color);
+                        Color mainMaskPixel = mainMask[pictureIndex].GetPixel(pixelX + i, pixelY + j);
+                        Color removableMaskPixel = removableMask[pictureIndex].GetPixel(pixelX + i, pixelY + j);
+
+
+                        if (mainMaskPixel.a > 0 || removableMaskPixel.a > 0)
+                        {
+                            canvasTexture.SetPixel(pixelX + i, pixelY + j, color);
+                        }
                     }
                 }
             }

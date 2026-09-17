@@ -5,17 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
+    [Header("Audio")]
     [SerializeField] AudioSource narrationAudioSource;
-    [SerializeField] ColoringManager coloringManager;
-    [SerializeField] PeopleImageManager peopleImageManager;
+
+    [Header("Transition")]
     [SerializeField] Animator transition;
     [SerializeField] Image whereToShowScreenshot;
+
+    [Header("People")]
+    [SerializeField] PeopleImageManager peopleImageManager;
+
+    [Header("Coloring")]
+    [SerializeField] ColoringManager coloringManager;
+
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
     private GameObject[] mainMenuObjects;
-    private bool narrationOn = false;
     private bool NextPictureRunning;
     private int pictureIndex = 0;
+    private bool narrationOn = false;
 
     private void Awake()
     {
