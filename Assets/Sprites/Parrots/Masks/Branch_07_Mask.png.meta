@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 93d1781676fc56d4e91393ca3f38c79a
+guid: da036708b71173848a6e1aa051b097e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4442807051361214165
-    second: Parrot_01_ClawMask2_0
+      213: -1483407423975865499
+    second: 000_0
+  - first:
+      213: 4882386082444555118
+    second: 000_1
+  - first:
+      213: -447473948523714331
+    second: 000_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parrot_01_ClawMask2_0
+      name: 000_0
       rect:
         serializedVersion: 2
-        x: 342
-        y: 143
-        width: 173
-        height: 269
+        x: 118
+        y: 266
+        width: 42
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b21a30a968af752c0800000000000000
-      internalID: -4442807051361214165
+      spriteID: 563cdbcaec0e96be0800000000000000
+      internalID: -1483407423975865499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 000_1
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 215
+        width: 88
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e633b642648b1c340800000000000000
+      internalID: 4882386082444555118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 000_2
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 211
+        width: 72
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8a00c80d04ac9f0800000000000000
+      internalID: -447473948523714331
       vertices: []
       indices: 
       edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Parrot_01_ClawMask2_0: -4442807051361214165
+      000_0: -1483407423975865499
+      000_1: 4882386082444555118
+      000_2: -447473948523714331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

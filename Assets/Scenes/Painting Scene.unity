@@ -154,7 +154,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f11980dbc519a544bd49b7c16049ee5, type: 3}
   - {fileID: 21300000, guid: 133c1ff0cb48e6443b6cc46a533ceb78, type: 3}
   - {fileID: 21300000, guid: 76051935cc9a6ea4981bce9c42f425aa, type: 3}
-  - {fileID: 21300000, guid: 75b8a7cc6af97cd46b48a4587b936d12, type: 3}
+  - {fileID: 21300000, guid: 05315e0c7024a0f4ebaae31c87c563a4, type: 3}
   - {fileID: 21300000, guid: 8b019a709a9a43d44a2463590ae7920f, type: 3}
   - {fileID: 21300000, guid: 0a93b1f6c1a440c449e788d7b6597dc8, type: 3}
   - {fileID: 21300000, guid: 53ab4aa6daf61b44cbae19434719bc9d, type: 3}
@@ -164,8 +164,28 @@ MonoBehaviour:
   paintLayer: {fileID: 1389998592}
   mainMask:
   - {fileID: 2800000, guid: bd0a83d5f9278b046b408c3cc07bacad, type: 3}
+  - {fileID: 2800000, guid: b5d26201b9206f84e9b8fcbe1eefa11a, type: 3}
+  - {fileID: 2800000, guid: 591d6e5c84724a64ca02d67d10827918, type: 3}
+  - {fileID: 2800000, guid: f1c37739e06ee2149a4c4bea937305c3, type: 3}
+  - {fileID: 2800000, guid: 8dfe1734d79ed7843af9aec460f884c7, type: 3}
+  - {fileID: 2800000, guid: 825ccf08990501142b4179268bc73b1c, type: 3}
+  - {fileID: 2800000, guid: dd3235d181e92f141b99a21cd6f233f3, type: 3}
+  - {fileID: 2800000, guid: cf26360462a52a44187c6d0cd401309d, type: 3}
+  - {fileID: 2800000, guid: b12884f8f7c90204b858af5059c68168, type: 3}
+  - {fileID: 2800000, guid: 681a46006fb6daa44bae9f1dcb78f3a7, type: 3}
+  - {fileID: 2800000, guid: 4efa053c47e25df4fb3debbd842f7195, type: 3}
   removableMask:
   - {fileID: 2800000, guid: bf79d487d05b30944a0771a06706c7c4, type: 3}
+  - {fileID: 2800000, guid: 401202f7d54a0494593bf5915e155c6d, type: 3}
+  - {fileID: 2800000, guid: 46c0250174a1cf44fb51013ca0745bda, type: 3}
+  - {fileID: 2800000, guid: f04340b3cffb81f40a9c7d9886eea825, type: 3}
+  - {fileID: 2800000, guid: cfc67318427458c43a34886a5189e2b8, type: 3}
+  - {fileID: 2800000, guid: ba7ace8c531f3404e83b967092bda86d, type: 3}
+  - {fileID: 2800000, guid: da036708b71173848a6e1aa051b097e2, type: 3}
+  - {fileID: 2800000, guid: 1a12402f26a121642bfe6e74ec5aba17, type: 3}
+  - {fileID: 2800000, guid: afa31eb54501d64409b06c2651816734, type: 3}
+  - {fileID: 2800000, guid: a82665568664d92449e8cec802e8e7b1, type: 3}
+  - {fileID: 2800000, guid: 747b2420a50c43c458415cfd3fd4bd99, type: 3}
   brushSize: 20
 --- !u!4 &61961479
 Transform:
