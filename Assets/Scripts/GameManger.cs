@@ -17,6 +17,7 @@ public class GameManger : MonoBehaviour
 
     [Header("Coloring")]
     [SerializeField] ColoringManager coloringManager;
+    [SerializeField] ColorManager colorManager;
 
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
@@ -141,6 +142,7 @@ public class GameManger : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         coloringManager.NextPicture(pictureIndex);
+        colorManager.UpdateColors(pictureIndex);
         peopleImageManager.ChangeImageAndAnimations(pictureIndex);
 
         transition.SetTrigger("End");

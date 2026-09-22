@@ -1417,6 +1417,7 @@ MonoBehaviour:
   whereToShowScreenshot: {fileID: 465745958}
   peopleImageManager: {fileID: 741003978}
   coloringManager: {fileID: 61961478}
+  colorManager: {fileID: 2086910293}
 --- !u!4 &1146921195
 Transform:
   m_ObjectHideFlags: 0
@@ -1818,8 +1819,8 @@ GameObject:
   - component: {fileID: 1421964653}
   - component: {fileID: 1421964652}
   m_Layer: 5
-  m_Name: BlueColorButton
-  m_TagString: Untagged
+  m_Name: ColorButton_02
+  m_TagString: Colors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,19 +1887,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1421964653}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 61961478}
-        m_TargetAssemblyTypeName: ColoringManager, Assembly-CSharp
-        m_MethodName: SetColorBlue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1421964653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,8 +1939,8 @@ GameObject:
   - component: {fileID: 1429625690}
   - component: {fileID: 1429625689}
   m_Layer: 5
-  m_Name: GreenColorButton
-  m_TagString: Untagged
+  m_Name: ColorButton_03
+  m_TagString: Colors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2018,19 +2007,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1429625690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 61961478}
-        m_TargetAssemblyTypeName: ColoringManager, Assembly-CSharp
-        m_MethodName: SetColorGreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1429625690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,8 +2294,8 @@ GameObject:
   - component: {fileID: 1696979499}
   - component: {fileID: 1696979498}
   m_Layer: 5
-  m_Name: RedColorButton
-  m_TagString: Untagged
+  m_Name: ColorButton_01
+  m_TagString: Colors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2385,19 +2362,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1696979499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 61961478}
-        m_TargetAssemblyTypeName: ColoringManager, Assembly-CSharp
-        m_MethodName: SetColorRed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1696979499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2450,7 @@ GameObject:
   - component: {fileID: 1979205054}
   - component: {fileID: 1979205053}
   m_Layer: 5
-  m_Name: ClearColorButton
+  m_Name: EraserButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2706,6 +2671,7 @@ GameObject:
   - component: {fileID: 2086910291}
   - component: {fileID: 2086910290}
   - component: {fileID: 2086910289}
+  - component: {fileID: 2086910293}
   m_Layer: 5
   m_Name: PaintingToolsCanvas
   m_TagString: Painting
@@ -2801,6 +2767,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2086910293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086910288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b988339bb32b2c24c84b3e6ea05a9b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorManager
+  coloringManager: {fileID: 61961478}
+  colorData:
+  - {fileID: 11400000, guid: 01d31c14eb73de246b270a8c56de23e2, type: 2}
+  - {fileID: 11400000, guid: 53d73b76f9f5af141946d4459bde0517, type: 2}
+  - {fileID: 11400000, guid: f47ccdcd1479e8c4cb6be8ed6f7e2691, type: 2}
+  - {fileID: 11400000, guid: 9b0721c1de09216409e139f6015aca50, type: 2}
+  - {fileID: 11400000, guid: e92e4be86ca975c4abdf52c316129f4c, type: 2}
+  - {fileID: 11400000, guid: bde22189614bd80468514b6d732167cd, type: 2}
+  - {fileID: 11400000, guid: aafb78cbd58368d45a4d640c88e9b6ac, type: 2}
+  - {fileID: 11400000, guid: d97d9b36aaa5b7e4abf974d9acb4e7da, type: 2}
+  - {fileID: 11400000, guid: 2dae39949913ebe449aabc5c0e03eccf, type: 2}
+  - {fileID: 11400000, guid: 95c8665baae364043bce8032a62aea81, type: 2}
+  - {fileID: 11400000, guid: 706dbb7596234ff4cb7eb3c576e4f563, type: 2}
 --- !u!1 &2106290671
 GameObject:
   m_ObjectHideFlags: 0

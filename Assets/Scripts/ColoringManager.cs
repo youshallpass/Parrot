@@ -19,7 +19,7 @@ public class ColoringManager : MonoBehaviour
     private Texture2D[] canvasTextures;
     private int pictureIndex = 0;
 
-    private Color color = Color.red;
+    private Color color = Color.clear;
 
     public bool paintmode;
     private Vector2 previousTouchPosition;
@@ -237,19 +237,24 @@ public class ColoringManager : MonoBehaviour
         brushSize = newBrushSize;
     }
 
-    public void SetColorRed()
-    {
-        color = Color.red;
-    }
+    //public void SetColorRed()
+    //{
+    //    color = Color.red;
+    //}
 
-    public void SetColorGreen()
-    {
-        color = Color.green;
-    }
+    //public void SetColorGreen()
+    //{
+    //    color = Color.green;
+    //}
 
-    public void SetColorBlue()
+    //public void SetColorBlue()
+    //{
+    //    color = Color.blue;
+    //}
+
+    public void SetColor(Color newColor)
     {
-        color = Color.blue;
+        color = newColor;
     }
 
     public void SetColorClear()
