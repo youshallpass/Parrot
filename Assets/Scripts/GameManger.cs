@@ -86,6 +86,8 @@ public class GameManger : MonoBehaviour
             go.SetActive(false);
         }
 
+        coloringManager.paintmode = true;
+
         transition.SetTrigger("End");
 
         StartCoroutine(peopleImageManager.AnimationLoop());
@@ -126,6 +128,7 @@ public class GameManger : MonoBehaviour
             if (pictureIndex >= coloringManager.pictures.Length)
             {
                 StartCoroutine(NextScene());
+                return;
             }
             StartCoroutine(NextPicture());
         }
@@ -192,6 +195,8 @@ public class GameManger : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(1);
         Object.Destroy(GameObject.Find("NextDrawingButton"));
+
+        coloringManager.paintmode = false;
 
         transition.SetTrigger("End");
 

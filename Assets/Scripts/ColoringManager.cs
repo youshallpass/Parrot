@@ -21,6 +21,7 @@ public class ColoringManager : MonoBehaviour
 
     private Color color = Color.red;
 
+    public bool paintmode;
     private Vector2 previousTouchPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +36,14 @@ public class ColoringManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if (paintmode)
+        {
+            TouchInput();
+        }
+    }
+
+    private void TouchInput()
     {
         if (Input.touchCount > 0)
         {
