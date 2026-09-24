@@ -9,6 +9,8 @@ public class GameManger : MonoBehaviour
     [SerializeField] AudioSource narrationAudioSource;
     [SerializeField] Sprite pauseSprite;
     [SerializeField] Sprite resumeSprite;
+    [SerializeField] AudioClip danish_Narration;
+    [SerializeField] AudioClip english_Narration;
 
     [Header("Transition")]
     [SerializeField] Animator transition;
@@ -20,6 +22,14 @@ public class GameManger : MonoBehaviour
     [Header("Coloring")]
     [SerializeField] ColoringManager coloringManager;
     [SerializeField] ColorManager colorManager;
+
+    [Header("SettingsMenu")]
+    [SerializeField] GameObject settingsMenuCanvas;
+    [SerializeField] GameObject menu_Title;
+    [SerializeField] Sprite title_Danish;
+    [SerializeField] Sprite title_English;
+    [SerializeField] GameObject danish_Button;
+    [SerializeField] GameObject english_Button;
 
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
@@ -58,11 +68,6 @@ public class GameManger : MonoBehaviour
 
     }
 
-    private void OpenInfoScreen()
-    {
-
-    }
-
     public void StartGamePress()
     {
         StartCoroutine(StartGame());
@@ -94,7 +99,7 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("End");
 
         StartCoroutine(peopleImageManager.AnimationLoop());
-        
+
         StartCoroutine(StartNarration());
     }
 
@@ -205,5 +210,34 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("End");
 
         NextPictureRunning = false;
+    }
+
+    public void OpenSetting(bool active)
+    {
+        settingsMenuCanvas.SetActive(active);
+    }
+
+    public void SetLanguage(int index)
+    {
+        switch (index)
+        {
+            //English
+            case 1:
+                Debug.Log("Language set to English");
+                menu_Title.GetComponent<Image>().sprite = title_English;
+                narrationAudioSource.clip = english_Narration;
+                english_Button.GetComponent<Outline>().enabled = true;
+                danish_Button.GetComponent<Outline>().enabled = false;
+                break;
+
+            //Danish
+            case 2:
+                Debug.Log("Language set to Danish");
+                menu_Title.GetComponent<Image>().sprite = title_Danish;
+                narrationAudioSource.clip = danish_Narration;
+                danish_Button.GetComponent<Outline>().enabled = true;
+                english_Button.GetComponent<Outline>().enabled = false;
+                break;
+        }
     }
 }
