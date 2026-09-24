@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
-    [Header("Audio")]
+    [Header("Narration")]
     [SerializeField] AudioSource narrationAudioSource;
+    [SerializeField] Sprite pauseSprite;
+    [SerializeField] Sprite resumeSprite;
 
     [Header("Transition")]
     [SerializeField] Animator transition;
@@ -109,14 +111,14 @@ public class GameManger : MonoBehaviour
         {
             narrationAudioSource.Pause();
             narrationOn = false;
-            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color = Color.red;
+            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = resumeSprite;
 
         }
         else
         {
             narrationAudioSource.Play();
             narrationOn = true;
-            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color = Color.blue;
+            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = pauseSprite;
         }
     }
 
