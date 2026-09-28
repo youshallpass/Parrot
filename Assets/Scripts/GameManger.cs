@@ -38,9 +38,19 @@ public class GameManger : MonoBehaviour
     private int pictureIndex = 0;
     private bool narrationOn = false;
 
+    private static GameManger gameManagerInstance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (gameManagerInstance != null && gameManagerInstance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        gameManagerInstance = this;
+        DontDestroyOnLoad(gameObject);
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -239,5 +249,46 @@ public class GameManger : MonoBehaviour
                 english_Button.GetComponent<Outline>().enabled = false;
                 break;
         }
+    }
+
+    public void ResetPainting()
+    {
+        coloringManager.ClearCanvas();
+    }
+
+    public void ClickOpenMainMenu()
+    {
+        pictureIndex = 0;
+        StopCoroutine(StartNarration());
+        narrationAudioSource.Stop();
+        narrationOn = false;
+        StartCoroutine(OpenMainMenu());
+    }
+
+    IEnumerator OpenMainMenu()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+        coloringManager.NextPicture(pictureIndex);
+        colorManager.UpdateColors(pictureIndex);
+        peopleImageManager.ChangeImageAndAnimations(pictureIndex);
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            go.SetActive(true);
+        }
+
+        coloringManager.paintmode = false;
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
+    }
+
+    public void ResetGame()
+    {
+        coloringManager.ResetAllCanvas();
+        OpenSetting(false);
     }
 }

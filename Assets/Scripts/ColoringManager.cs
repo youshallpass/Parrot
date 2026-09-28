@@ -137,7 +137,7 @@ public class ColoringManager : MonoBehaviour
         paintLayer.transform.position = new Vector3(worldCenter.x, worldCenter.y, paintLayer.transform.position.z);
     }
 
-    private void ClearCanvas()
+    public void ClearCanvas()
     {
         Color[] clearColorArray = new Color[canvasTexture.width * canvasTexture.height];
         for (var i = 0; i < clearColorArray.Length; i++)
@@ -237,21 +237,6 @@ public class ColoringManager : MonoBehaviour
         brushSize = newBrushSize;
     }
 
-    //public void SetColorRed()
-    //{
-    //    color = Color.red;
-    //}
-
-    //public void SetColorGreen()
-    //{
-    //    color = Color.green;
-    //}
-
-    //public void SetColorBlue()
-    //{
-    //    color = Color.blue;
-    //}
-
     public void SetColor(Color newColor)
     {
         color = newColor;
@@ -260,5 +245,22 @@ public class ColoringManager : MonoBehaviour
     public void SetColorClear()
     {
         color = Color.clear;
+    }
+
+    public void ResetAllCanvas()
+    {
+        for (int i = 0; i < canvasTextures.Length; i++)
+        {
+            if (canvasTextures[i] != null)
+            {
+                Color[] clearColorArray = new Color[canvasTextures[i].width * canvasTextures[i].height];
+                for (int j = 0; j < clearColorArray.Length; j++)
+                {
+                    clearColorArray[j] = Color.clear;
+                }
+                canvasTextures[i].SetPixels(clearColorArray);
+                canvasTextures[i].Apply();
+            }
+        }
     }
 }

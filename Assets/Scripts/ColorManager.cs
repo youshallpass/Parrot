@@ -48,5 +48,7 @@ public class ColorManager : MonoBehaviour
         {
             sortedColorObjects[i].GetComponent<Image>().color = color.color[i];
         }
+
+        coloringManager.SetColor(color.color[0]);
     }
 }
