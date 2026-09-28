@@ -115,7 +115,7 @@ public class GameManger : MonoBehaviour
 
     IEnumerator StartNarration()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         narrationAudioSource.Play();
         narrationOn = true;
     }
