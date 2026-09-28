@@ -74,19 +74,21 @@ public class ColoringManager : MonoBehaviour
         if (canvasTextures[pictureIndex] != null)
         {
             canvasTexture = canvasTextures[pictureIndex];
-            paintLayer.sprite = Sprite.Create(canvasTexture, new Rect(0, 0, canvasTexture.width, canvasTexture.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
-            return;
+            paintLayer.sprite = Sprite.Create(canvasTexture, new Rect(0, 0, canvasTexture.width, canvasTexture.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit, 0, SpriteMeshType.FullRect);
+        }
+        else
+        {
+            Texture2D pictureData = picture.sprite.texture;
+            canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
+            canvasTexture.filterMode = FilterMode.Bilinear;
+            canvasTextures[pictureIndex] = canvasTexture;
+
+            Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
+            paintLayer.sprite = paintSprite;
+
+            ClearCanvas();
         }
 
-        Texture2D pictureData = picture.sprite.texture;
-        canvasTexture = new Texture2D(pictureData.width, pictureData.height, TextureFormat.RGBA32, false);
-        canvasTexture.filterMode = FilterMode.Bilinear;
-        canvasTextures[pictureIndex] = canvasTexture;
-
-        Sprite paintSprite = Sprite.Create(canvasTexture, new Rect(0, 0, pictureData.width, pictureData.height), new Vector2(0.5f, 0.5f), picture.sprite.pixelsPerUnit);
-        paintLayer.sprite = paintSprite;
-
-        ClearCanvas();
         Canvas.ForceUpdateCanvases();
         UpdatePaintLayerToPicture();
     }
