@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class GameManger : MonoBehaviour
 
     [Header("Transition")]
     [SerializeField] Animator transition;
+    [SerializeField] Screenshot screenshotScript;
     [SerializeField] Image whereToShowScreenshot;
 
     [Header("People")]
@@ -288,7 +290,19 @@ public class GameManger : MonoBehaviour
 
     public void ResetGame()
     {
+        Screenshot.screenshots.Clear();
         coloringManager.ResetAllCanvas();
         OpenSetting(false);
+    }
+
+    public void TakeScreenshot()
+    {
+        screenshotScript.takeScreenshot = true;
+    }
+
+    public void DisplayScreenshot()
+    {
+        whereToShowScreenshot.enabled = true;
+        whereToShowScreenshot.sprite = Screenshot.screenshots[pictureIndex];
     }
 }
