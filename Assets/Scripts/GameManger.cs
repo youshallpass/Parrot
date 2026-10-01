@@ -16,7 +16,6 @@ public class GameManger : MonoBehaviour
     [Header("Transition")]
     [SerializeField] Animator transition;
     [SerializeField] Screenshot screenshotScript;
-    [SerializeField] Image whereToShowScreenshot;
 
     [Header("People")]
     [SerializeField] PeopleImageManager peopleImageManager;
@@ -144,8 +143,8 @@ public class GameManger : MonoBehaviour
         if (!NextPictureRunning)
         {
             NextPictureRunning = true;
-            pictureIndex++;
             TakeScreenshot();
+            pictureIndex++;
             if (pictureIndex >= coloringManager.pictures.Length)
             {
                 StartCoroutine(NextScene());
@@ -168,45 +167,6 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("End");
 
         NextPictureRunning = false;
-
-
-        //PageFlip Transition
-        //foreach (GameObject go in uiObjects)
-        //{
-        //    go.SetActive(false);
-        //}
-
-        //yield return new WaitForEndOfFrame();
-
-        //Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
-
-        //Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.ARGB32, false);
-        //newScreenshot.SetPixels(screenshot.GetPixels());
-        //newScreenshot.Apply();
-
-        //Destroy(screenshot);
-
-        //Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
-
-        //whereToShowScreenshot.enabled = true;
-        //whereToShowScreenshot.sprite = screenshotSprite;
-
-        //coloringManager.NextPicture();
-
-        //transition.SetTrigger("Start");
-
-        //transition.SetTrigger("End");
-
-        //yield return new WaitForSeconds(1);
-
-        //whereToShowScreenshot.enabled = false;
-
-        //foreach (GameObject go in uiObjects)
-        //{
-        //    go.SetActive(true);
-        //}
-
-        //NextPictureRunning = false;
     }
 
     IEnumerator NextScene()
@@ -269,6 +229,7 @@ public class GameManger : MonoBehaviour
     public void ClickOpenMainMenu()
     {
         pictureIndex = 0;
+        Screenshot.screenshots.Clear();
         StopCoroutine(StartNarration());
         narrationAudioSource.Stop();
         narrationOn = false;
@@ -306,13 +267,11 @@ public class GameManger : MonoBehaviour
     public void TakeScreenshot()
     {
         coloringManager.ClearMaskPaint();
+        if (coloringManager.Branchless[pictureIndex] != null)
+        {
+            coloringManager.picture.sprite = coloringManager.Branchless[pictureIndex];
+        }
         screenshotScript.takeScreenshot = true;
-    }
-
-    public void DisplayScreenshot()
-    {
-        whereToShowScreenshot.enabled = true;
-        whereToShowScreenshot.sprite = Screenshot.screenshots[pictureIndex];
     }
 
     private void FindAllParrotObjects()

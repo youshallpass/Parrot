@@ -5,15 +5,16 @@ public class ColoringManager : MonoBehaviour
 {
     [Header("Lineart")]
     [SerializeField] public Sprite[] pictures;
-    [SerializeField] private Image picture;
+    [SerializeField] public Image picture;
+    [SerializeField] public Sprite[] Branchless;
 
     [Header("Paintlayer & Masks")]
-    [SerializeField] private SpriteRenderer paintLayer;
-    [SerializeField] private Texture2D[] mainMask;
-    [SerializeField] private Texture2D[] removableMask;
+    [SerializeField] SpriteRenderer paintLayer;
+    [SerializeField] Texture2D[] mainMask;
+    [SerializeField] Texture2D[] removableMask;
 
     [Header("Brush Settings")]
-    public float brushSize = 20f;
+    [SerializeField] float brushSize = 20f;
 
     private Texture2D canvasTexture;
     private Texture2D[] canvasTextures;
