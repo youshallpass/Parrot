@@ -7,7 +7,6 @@ public class Screenshot : MonoBehaviour
     public static List<Sprite> screenshots = new List<Sprite>();
 
     public SpriteRenderer targetSprite;
-    public Texture2D lineart;
 
     public bool takeScreenshot = false;
 

@@ -145,6 +145,7 @@ public class GameManger : MonoBehaviour
         {
             NextPictureRunning = true;
             pictureIndex++;
+            TakeScreenshot();
             if (pictureIndex >= coloringManager.pictures.Length)
             {
                 StartCoroutine(NextScene());
@@ -214,10 +215,17 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
         Object.Destroy(GameObject.Find("NextDrawingButton"));
 
         coloringManager.paintmode = false;
+
+        FindAllParrotObjects();
 
         transition.SetTrigger("End");
 
@@ -297,6 +305,7 @@ public class GameManger : MonoBehaviour
 
     public void TakeScreenshot()
     {
+        coloringManager.ClearMaskPaint();
         screenshotScript.takeScreenshot = true;
     }
 
@@ -304,5 +313,17 @@ public class GameManger : MonoBehaviour
     {
         whereToShowScreenshot.enabled = true;
         whereToShowScreenshot.sprite = Screenshot.screenshots[pictureIndex];
+    }
+
+    private void FindAllParrotObjects()
+    {
+        GameObject parrent = GameObject.Find("Parrots");
+        GameObject[] children = new GameObject[parrent.transform.childCount];
+
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i] = parrent.transform.GetChild(i).gameObject;
+            children[i].GetComponent<SpriteRenderer>().sprite = Screenshot.screenshots[i];
+        }
     }
 }
