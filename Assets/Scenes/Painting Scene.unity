@@ -295,16 +295,16 @@ MonoBehaviour:
   picture: {fileID: 626387155}
   Branchless:
   - {fileID: 21300000, guid: d2433715437e78442b7f25c8157340b0, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 783da06f4f2080b458b6b76ddc40c8f1, type: 3}
+  - {fileID: 21300000, guid: 9a7cd4f876e472b4d9719831644f113f, type: 3}
+  - {fileID: 21300000, guid: 0d2ed97f964497d46bb3668a44255a79, type: 3}
+  - {fileID: 21300000, guid: 1ba2a0d6f1b6b4e45b56bd60a8468637, type: 3}
+  - {fileID: 21300000, guid: 390b6bb206dfcbf4882c9fe0f1569c85, type: 3}
+  - {fileID: 21300000, guid: 004edf7e5538e144583a51a21ce8b32b, type: 3}
+  - {fileID: 21300000, guid: 35e0be5ef929df5478c1daf785a12125, type: 3}
+  - {fileID: 21300000, guid: 983531a68e60c3b42a57af7d40388efb, type: 3}
+  - {fileID: 21300000, guid: 26addd4e6422b8a4789a0c4d383360b2, type: 3}
+  - {fileID: 21300000, guid: 0b27e51870b92d7479e2e29175e8df40, type: 3}
   paintLayer: {fileID: 1389998592}
   mainMask:
   - {fileID: 2800000, guid: bd0a83d5f9278b046b408c3cc07bacad, type: 3}
@@ -2964,7 +2964,6 @@ MonoBehaviour:
   english_Narration: {fileID: 8300000, guid: 5d6c274785f68a94fad78f7045f7bba8, type: 3}
   transition: {fileID: 1212922554}
   screenshotScript: {fileID: 472583790}
-  whereToShowScreenshot: {fileID: 0}
   peopleImageManager: {fileID: 741003978}
   coloringManager: {fileID: 61961478}
   colorManager: {fileID: 2086910293}

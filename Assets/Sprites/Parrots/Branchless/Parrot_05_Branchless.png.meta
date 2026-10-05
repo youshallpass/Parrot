@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 1ba2a0d6f1b6b4e45b56bd60a8468637
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7415449004816214436
+    second: Parrot_05_Branchless_0
+  - first:
+      213: -2073941164304016345
+    second: Parrot_05_Branchless_1
+  - first:
+      213: -4250727548188981017
+    second: Parrot_05_Branchless_2
+  - first:
+      213: -1037867745897521670
+    second: Parrot_05_Branchless_3
+  - first:
+      213: -1389042079907566089
+    second: Parrot_05_Branchless_4
+  - first:
+      213: 4919751284025513034
+    second: Parrot_05_Branchless_5
+  - first:
+      213: -1482558058547535125
+    second: Parrot_05_Branchless_6
+  - first:
+      213: 2106439895563536178
+    second: Parrot_05_Branchless_7
+  - first:
+      213: 8232505547023764320
+    second: Parrot_05_Branchless_8
+  - first:
+      213: -2142326518138782484
+    second: Parrot_05_Branchless_9
+  - first:
+      213: 7809782958015438437
+    second: Parrot_05_Branchless_10
+  - first:
+      213: 3565149767715861666
+    second: Parrot_05_Branchless_11
+  - first:
+      213: 7877876103554040119
+    second: Parrot_05_Branchless_12
+  - first:
+      213: 897509837346836344
+    second: Parrot_05_Branchless_13
+  - first:
+      213: -992599688397727055
+    second: Parrot_05_Branchless_14
+  - first:
+      213: -7494090494458870601
+    second: Parrot_05_Branchless_15
+  - first:
+      213: 6989210541798082753
+    second: Parrot_05_Branchless_16
+  - first:
+      213: -9101148581629156635
+    second: Parrot_05_Branchless_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 242
+        height: 1375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a92816c497f8e660800000000000000
+      internalID: 7415449004816214436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 895
+        width: 65
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c5990df71e733e0800000000000000
+      internalID: -2073941164304016345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1159
+        width: 126
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e88a35f0d16205c0800000000000000
+      internalID: -4250727548188981017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 968
+        width: 96
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd51f1b8c0c891f0800000000000000
+      internalID: -1037867745897521670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_4
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 625
+        width: 202
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd2a09769129bce0800000000000000
+      internalID: -1389042079907566089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_5
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 774
+        width: 20
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44dc931ab7764440800000000000000
+      internalID: 4919751284025513034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 730
+        width: 104
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2a169fc45ec6be0800000000000000
+      internalID: -1482558058547535125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_7
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 344
+        width: 71
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23786c3bce39b3d10800000000000000
+      internalID: 2106439895563536178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_8
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 212
+        width: 38
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06bc8c56d2cbf3270800000000000000
+      internalID: 8232505547023764320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_9
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 109
+        width: 65
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec307dd16de442e0800000000000000
+      internalID: -2142326518138782484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_10
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 246
+        width: 51
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ed869e83ce16c60800000000000000
+      internalID: 7809782958015438437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_11
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 211
+        width: 32
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a435c323d4f97130800000000000000
+      internalID: 3565149767715861666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_12
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 189
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73180e0d396d35d60800000000000000
+      internalID: 7877876103554040119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_13
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 121
+        width: 63
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f0a7d1178947c00800000000000000
+      internalID: 897509837346836344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_14
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 215
+        width: 42
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bad3e8a7d39932f0800000000000000
+      internalID: -992599688397727055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_15
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 114
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4c5239664aff790800000000000000
+      internalID: -7494090494458870601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_16
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 71
+        width: 68
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c84a4415f9aef060800000000000000
+      internalID: 6989210541798082753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parrot_05_Branchless_17
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 71
+        width: 249
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2a1ffb59932b180800000000000000
+      internalID: -9101148581629156635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Parrot_05_Branchless_0: 7415449004816214436
+      Parrot_05_Branchless_1: -2073941164304016345
+      Parrot_05_Branchless_10: 7809782958015438437
+      Parrot_05_Branchless_11: 3565149767715861666
+      Parrot_05_Branchless_12: 7877876103554040119
+      Parrot_05_Branchless_13: 897509837346836344
+      Parrot_05_Branchless_14: -992599688397727055
+      Parrot_05_Branchless_15: -7494090494458870601
+      Parrot_05_Branchless_16: 6989210541798082753
+      Parrot_05_Branchless_17: -9101148581629156635
+      Parrot_05_Branchless_2: -4250727548188981017
+      Parrot_05_Branchless_3: -1037867745897521670
+      Parrot_05_Branchless_4: -1389042079907566089
+      Parrot_05_Branchless_5: 4919751284025513034
+      Parrot_05_Branchless_6: -1482558058547535125
+      Parrot_05_Branchless_7: 2106439895563536178
+      Parrot_05_Branchless_8: 8232505547023764320
+      Parrot_05_Branchless_9: -2142326518138782484
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
