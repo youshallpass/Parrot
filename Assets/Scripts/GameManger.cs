@@ -57,6 +57,8 @@ public class GameManger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         paintingObjects = GameObject.FindGameObjectsWithTag("Painting");
         uiObjects = GameObject.FindGameObjectsWithTag("UI");
         mainMenuObjects = GameObject.FindGameObjectsWithTag("MainMenu");
