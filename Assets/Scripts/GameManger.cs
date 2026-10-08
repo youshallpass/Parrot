@@ -1,0 +1,328 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManger : MonoBehaviour
+{
+    [Header("Narration")]
+    [SerializeField] AudioSource narrationAudioSource;
+    [SerializeField] Sprite pauseSprite;
+    [SerializeField] Sprite resumeSprite;
+    [SerializeField] AudioClip danish_Narration;
+    [SerializeField] AudioClip english_Narration;
+
+    [Header("Transition")]
+    [SerializeField] Animator transition;
+    [SerializeField] Screenshot screenshotScript;
+
+    [Header("People")]
+    [SerializeField] PeopleImageManager peopleImageManager;
+
+    [Header("Coloring")]
+    [SerializeField] ColoringManager coloringManager;
+    [SerializeField] ColorManager colorManager;
+
+    [Header("SettingsMenu")]
+    [SerializeField] GameObject settingsMenuCanvas;
+    [SerializeField] GameObject menu_Title;
+    [SerializeField] Sprite title_Danish;
+    [SerializeField] Sprite title_English;
+    [SerializeField] GameObject danish_Button;
+    [SerializeField] GameObject english_Button;
+
+    private GameObject[] paintingObjects;
+    private GameObject[] uiObjects;
+    private GameObject[] mainMenuObjects;
+    private GameObject[] settingsMenuObjects;
+    private bool NextPictureRunning;
+    private int pictureIndex = 0;
+    private bool narrationOn = false;
+
+    private static GameManger gameManagerInstance;
+
+    private void Awake()
+    {
+        if (gameManagerInstance != null && gameManagerInstance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        gameManagerInstance = this;
+        DontDestroyOnLoad(gameObject);
+
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+        paintingObjects = GameObject.FindGameObjectsWithTag("Painting");
+        uiObjects = GameObject.FindGameObjectsWithTag("UI");
+        mainMenuObjects = GameObject.FindGameObjectsWithTag("MainMenu");
+        settingsMenuObjects = GameObject.FindGameObjectsWithTag("SettingsMenu");
+
+        foreach (GameObject go in paintingObjects)
+        {
+            go.SetActive(false);
+        }
+
+        foreach (GameObject go in uiObjects)
+        {
+            DontDestroyOnLoad(go);
+            go.SetActive(false);
+        }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            DontDestroyOnLoad(go);
+        }
+
+        foreach (GameObject go in settingsMenuObjects)
+        {
+            DontDestroyOnLoad(go);
+            go.SetActive(false);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void StartGamePress()
+    {
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            foreach (GameObject go in paintingObjects)
+            {
+                go.SetActive(true);
+            }
+
+            coloringManager.paintmode = true;
+
+            StartCoroutine(peopleImageManager.AnimationLoop());
+
+            StartCoroutine(StartNarration());
+        }
+
+        foreach (GameObject go in uiObjects)
+        {
+            go.SetActive(true);
+        }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            go.SetActive(false);
+        }
+
+        transition.SetTrigger("End");
+    }
+
+    IEnumerator StartNarration()
+    {
+        yield return new WaitForSeconds(1);
+        narrationAudioSource.Play();
+        narrationOn = true;
+    }
+
+    public void ToggleNarration()
+    {
+        if (narrationOn)
+        {
+            narrationAudioSource.Pause();
+            narrationOn = false;
+            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = resumeSprite;
+
+        }
+        else
+        {
+            narrationAudioSource.Play();
+            narrationOn = true;
+            UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = pauseSprite;
+        }
+    }
+
+    public void LoadNextPicture()
+    {
+        if (!NextPictureRunning)
+        {
+            NextPictureRunning = true;
+            TakeScreenshot();
+            pictureIndex++;
+            if (pictureIndex >= coloringManager.pictures.Length)
+            {
+                StartCoroutine(NextScene());
+                return;
+            }
+            StartCoroutine(NextPicture());
+        }
+    }
+
+    IEnumerator NextPicture()
+    {
+        //Fade transition
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+        coloringManager.NextPicture(pictureIndex);
+        colorManager.UpdateColors(pictureIndex);
+        peopleImageManager.ChangeImageAndAnimations(pictureIndex);
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
+    }
+
+    IEnumerator NextScene()
+    {
+        //Fade transition
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        Object.Destroy(GameObject.Find("NextDrawingButton"));
+        Object.Destroy(GameObject.Find("ResetButton"));
+
+        coloringManager.paintmode = false;
+
+        FindAllParrotObjects();
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
+    }
+
+    public void OpenSetting(bool active)
+    {
+        settingsMenuCanvas.SetActive(active);
+    }
+
+    public void SetLanguage(int index)
+    {
+        switch (index)
+        {
+            //English
+            case 1:
+                Debug.Log("Language set to English");
+                menu_Title.GetComponent<Image>().sprite = title_English;
+                narrationAudioSource.clip = english_Narration;
+                english_Button.GetComponent<Outline>().enabled = true;
+                danish_Button.GetComponent<Outline>().enabled = false;
+                break;
+
+            //Danish
+            case 2:
+                Debug.Log("Language set to Danish");
+                menu_Title.GetComponent<Image>().sprite = title_Danish;
+                narrationAudioSource.clip = danish_Narration;
+                danish_Button.GetComponent<Outline>().enabled = true;
+                english_Button.GetComponent<Outline>().enabled = false;
+                break;
+        }
+    }
+
+    public void ResetPainting()
+    {
+        coloringManager.ClearCanvas();
+    }
+
+    public void ClickOpenMainMenu()
+    {
+        StopCoroutine(StartNarration());
+        narrationAudioSource.Stop();
+        narrationOn = false;
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            pictureIndex = 0;
+            Screenshot.screenshots.Clear();
+        }
+
+        StartCoroutine(OpenMainMenu());
+    }
+
+    IEnumerator OpenMainMenu()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            coloringManager.NextPicture(pictureIndex);
+            colorManager.UpdateColors(pictureIndex);
+            peopleImageManager.ChangeImageAndAnimations(pictureIndex);
+            coloringManager.paintmode = false;
+        }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            go.SetActive(true);
+        }
+
+        transition.SetTrigger("End");
+
+        NextPictureRunning = false;
+    }
+
+    public void ResetGame()
+    {
+        foreach (GameObject go in uiObjects)
+        {
+            Destroy(go);
+        }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            Destroy(go);
+        }
+
+        foreach (GameObject go in settingsMenuObjects)
+        {
+            Destroy(go);
+        }
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
+    }
+
+    public void TakeScreenshot()
+    {
+        coloringManager.ClearMaskPaint();
+        if (coloringManager.Branchless[pictureIndex] != null)
+        {
+            coloringManager.picture.sprite = coloringManager.Branchless[pictureIndex];
+        }
+        screenshotScript.takeScreenshot = true;
+    }
+
+    private void FindAllParrotObjects()
+    {
+        GameObject parrent = GameObject.Find("Parrots");
+        GameObject[] children = new GameObject[parrent.transform.childCount];
+
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i] = parrent.transform.GetChild(i).gameObject;
+            children[i].GetComponent<SpriteRenderer>().sprite = Screenshot.screenshots[i];
+        }
+    }
+}
