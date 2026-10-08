@@ -9,6 +9,7 @@ TagManager:
   - MainMenu
   - BodyPart
   - Colors
+  - SettingsMenu
   layers:
   - Default
   - TransparentFX

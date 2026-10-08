@@ -34,6 +34,7 @@ public class GameManger : MonoBehaviour
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
     private GameObject[] mainMenuObjects;
+    private GameObject[] settingsMenuObjects;
     private bool NextPictureRunning;
     private int pictureIndex = 0;
     private bool narrationOn = false;
@@ -61,6 +62,7 @@ public class GameManger : MonoBehaviour
         paintingObjects = GameObject.FindGameObjectsWithTag("Painting");
         uiObjects = GameObject.FindGameObjectsWithTag("UI");
         mainMenuObjects = GameObject.FindGameObjectsWithTag("MainMenu");
+        settingsMenuObjects = GameObject.FindGameObjectsWithTag("SettingsMenu");
 
         foreach (GameObject go in paintingObjects)
         {
@@ -76,6 +78,12 @@ public class GameManger : MonoBehaviour
         foreach (GameObject go in mainMenuObjects)
         {
             DontDestroyOnLoad(go);
+        }
+
+        foreach (GameObject go in settingsMenuObjects)
+        {
+            DontDestroyOnLoad(go);
+            go.SetActive(false);
         }
     }
 
@@ -278,9 +286,22 @@ public class GameManger : MonoBehaviour
 
     public void ResetGame()
     {
-        Screenshot.screenshots.Clear();
-        coloringManager.ResetAllCanvas();
-        OpenSetting(false);
+        foreach (GameObject go in uiObjects)
+        {
+            Destroy(go);
+        }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            Destroy(go);
+        }
+
+        foreach (GameObject go in settingsMenuObjects)
+        {
+            Destroy(go);
+        }
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 
     public void TakeScreenshot()
