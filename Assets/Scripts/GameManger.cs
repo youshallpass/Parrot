@@ -115,8 +115,9 @@ public class GameManger : MonoBehaviour
 
             StartCoroutine(peopleImageManager.AnimationLoop());
 
-            StartCoroutine(StartNarration());
         }
+
+        StartCoroutine(StartNarration());
 
         foreach (GameObject go in uiObjects)
         {
