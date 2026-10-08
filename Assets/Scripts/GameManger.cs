@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour
 {
@@ -73,6 +72,11 @@ public class GameManger : MonoBehaviour
             DontDestroyOnLoad(go);
             go.SetActive(false);
         }
+
+        foreach (GameObject go in mainMenuObjects)
+        {
+            DontDestroyOnLoad(go);
+        }
     }
 
     // Update is called once per frame
@@ -92,9 +96,18 @@ public class GameManger : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        foreach (GameObject go in paintingObjects)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            go.SetActive(true);
+            foreach (GameObject go in paintingObjects)
+            {
+                go.SetActive(true);
+            }
+
+            coloringManager.paintmode = true;
+
+            StartCoroutine(peopleImageManager.AnimationLoop());
+
+            StartCoroutine(StartNarration());
         }
 
         foreach (GameObject go in uiObjects)
@@ -107,13 +120,7 @@ public class GameManger : MonoBehaviour
             go.SetActive(false);
         }
 
-        coloringManager.paintmode = true;
-
         transition.SetTrigger("End");
-
-        StartCoroutine(peopleImageManager.AnimationLoop());
-
-        StartCoroutine(StartNarration());
     }
 
     IEnumerator StartNarration()
@@ -177,6 +184,7 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
         while (!asyncLoad.isDone)
         {
@@ -184,6 +192,7 @@ public class GameManger : MonoBehaviour
         }
 
         Object.Destroy(GameObject.Find("NextDrawingButton"));
+        Object.Destroy(GameObject.Find("ResetButton"));
 
         coloringManager.paintmode = false;
 
@@ -230,11 +239,16 @@ public class GameManger : MonoBehaviour
 
     public void ClickOpenMainMenu()
     {
-        pictureIndex = 0;
-        Screenshot.screenshots.Clear();
         StopCoroutine(StartNarration());
         narrationAudioSource.Stop();
         narrationOn = false;
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            pictureIndex = 0;
+            Screenshot.screenshots.Clear();
+        }
+
         StartCoroutine(OpenMainMenu());
     }
 
@@ -243,16 +257,19 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
-        coloringManager.NextPicture(pictureIndex);
-        colorManager.UpdateColors(pictureIndex);
-        peopleImageManager.ChangeImageAndAnimations(pictureIndex);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            coloringManager.NextPicture(pictureIndex);
+            colorManager.UpdateColors(pictureIndex);
+            peopleImageManager.ChangeImageAndAnimations(pictureIndex);
+            coloringManager.paintmode = false;
+        }
 
         foreach (GameObject go in mainMenuObjects)
         {
             go.SetActive(true);
         }
-
-        coloringManager.paintmode = false;
 
         transition.SetTrigger("End");
 

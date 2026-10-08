@@ -1,67 +1,49 @@
 fileFormatVersion: 2
-guid: 76051935cc9a6ea4981bce9c42f425aa
+guid: b3ea7dc946b9ae44dab96bad5c44ee98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2819338320118772770
-    second: Parrot_05_0
+      213: 4113829005332862926
+    second: 9_0
   - first:
-      213: 4556192802605381293
-    second: Parrot_05_1
+      213: -215640629934891304
+    second: 9_1
   - first:
-      213: -3609882061133790875
-    second: Parrot_05_2
+      213: 6460059290704040764
+    second: 9_2
   - first:
-      213: -7532384518479942892
-    second: Parrot_05_3
+      213: -1084366493605160568
+    second: 9_3
   - first:
-      213: -1701752653101864096
-    second: Parrot_05_4
+      213: -6911333492305490673
+    second: 9_4
   - first:
-      213: -5058356677670022816
-    second: Parrot_05_5
+      213: 5874673946163824410
+    second: 9_5
   - first:
-      213: 5142502545513404029
-    second: Parrot_05_6
+      213: 570056791386284564
+    second: 9_6
   - first:
-      213: -8743702747899291206
-    second: Parrot_05_7
+      213: -2826682996054201647
+    second: 9_7
   - first:
-      213: -1717050745100054538
-    second: Parrot_05_8
+      213: 3022924913893435029
+    second: 9_8
   - first:
-      213: 2345305263467914801
-    second: Parrot_05_9
+      213: 8647828729984239220
+    second: 9_9
   - first:
-      213: -4688684188376898903
-    second: Parrot_05_10
+      213: 8215172708808457146
+    second: 9_10
   - first:
-      213: 5586664839180949667
-    second: Parrot_05_11
+      213: 3656226958368681031
+    second: 9_11
   - first:
-      213: 448084866663094965
-    second: Parrot_05_12
+      213: 5452282934594777227
+    second: 9_12
   - first:
-      213: 5230092376983699086
-    second: Parrot_05_13
-  - first:
-      213: 5438583962981967704
-    second: Parrot_05_14
-  - first:
-      213: 2195041188724318206
-    second: Parrot_05_15
-  - first:
-      213: -5457616239219050536
-    second: Parrot_05_16
-  - first:
-      213: 2620042479483611258
-    second: Parrot_05_17
-  - first:
-      213: 6886921437668961997
-    second: Parrot_05_18
-  - first:
-      213: -4810151254704776513
-    second: Parrot_05_19
+      213: 759897772711024964
+    second: 9_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -183,13 +165,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parrot_05_0
+      name: 9_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 168
-        height: 1375
+        x: 141
+        y: 692
+        width: 82
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2247350c34d402720800000000000000
-      internalID: 2819338320118772770
+      spriteID: ec750913fa1471930800000000000000
+      internalID: 4113829005332862926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_1
+      name: 9_1
       rect:
         serializedVersion: 2
-        x: 205
-        y: 895
-        width: 65
-        height: 269
+        x: 242
+        y: 607
+        width: 64
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da63c77d639da3f30800000000000000
-      internalID: 4556192802605381293
+      spriteID: 8ded6955df3e10df0800000000000000
+      internalID: -215640629934891304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_2
+      name: 9_2
       rect:
         serializedVersion: 2
-        x: 282
-        y: 1159
-        width: 126
-        height: 144
+        x: 132
+        y: 410
+        width: 143
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 561c011346f17edc0800000000000000
-      internalID: -3609882061133790875
+      spriteID: c335062b2bdb6a950800000000000000
+      internalID: 6460059290704040764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_3
+      name: 9_3
       rect:
         serializedVersion: 2
-        x: 327
-        y: 968
-        width: 96
-        height: 49
+        x: 309
+        y: 579
+        width: 21
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41be9505038977790800000000000000
-      internalID: -7532384518479942892
+      spriteID: 88914565b6e83f0f0800000000000000
+      internalID: -1084366493605160568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_4
+      name: 9_4
       rect:
         serializedVersion: 2
-        x: 424
-        y: 625
-        width: 202
-        height: 526
+        x: 314
+        y: 64
+        width: 164
+        height: 537
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,64 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06be8407af82268e0800000000000000
-      internalID: -1701752653101864096
+      spriteID: f0d0fda7ec20610a0800000000000000
+      internalID: -6911333492305490673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_5
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 774
-        width: 20
-        height: 105
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 061d048e66b1dc9b0800000000000000
-      internalID: -5058356677670022816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_6
-      rect:
-        serializedVersion: 2
-        x: 402
-        y: 730
-        width: 104
-        height: 141
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d765ed9a1d6dd5740800000000000000
-      internalID: 5142502545513404029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_7
+      name: 9_5
       rect:
         serializedVersion: 2
         x: 165
-        y: 344
-        width: 71
-        height: 419
+        y: 369
+        width: 17
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab91bd94da028a680800000000000000
-      internalID: -8743702747899291206
+      spriteID: a17465424d8078150800000000000000
+      internalID: 5874673946163824410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_8
+      name: 9_6
       rect:
         serializedVersion: 2
-        x: 241
-        y: 212
-        width: 38
-        height: 143
+        x: 195
+        y: 365
+        width: 11
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,20 +312,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ffcdf4d17fcb28e0800000000000000
-      internalID: -1717050745100054538
+      spriteID: 412e068a1af39e700800000000000000
+      internalID: 570056791386284564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_9
+      name: 9_7
       rect:
         serializedVersion: 2
-        x: 369
-        y: 109
-        width: 65
-        height: 247
+        x: 296
+        y: 390
+        width: 11
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,20 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 136ebde06b23c8020800000000000000
-      internalID: 2345305263467914801
+      spriteID: 1da6d8f9aca95c8d0800000000000000
+      internalID: -2826682996054201647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_10
+      name: 9_8
       rect:
         serializedVersion: 2
-        x: 482
-        y: 217
-        width: 132
-        height: 376
+        x: 41
+        y: 218
+        width: 133
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +356,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a2edc782927eeeb0800000000000000
-      internalID: -4688684188376898903
+      spriteID: 596eb4b613693f920800000000000000
+      internalID: 3022924913893435029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_11
+      name: 9_9
       rect:
         serializedVersion: 2
-        x: 160
-        y: 126
-        width: 82
-        height: 97
+        x: 118
+        y: 258
+        width: 62
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,20 +378,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a89b826212d78d40800000000000000
-      internalID: 5586664839180949667
+      spriteID: 476c0296962430870800000000000000
+      internalID: 8647828729984239220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_12
+      name: 9_10
       rect:
         serializedVersion: 2
-        x: 211
-        y: 211
-        width: 32
-        height: 131
+        x: 169
+        y: 178
+        width: 49
+        height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,20 +400,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ba9eaaefcae73600800000000000000
-      internalID: 448084866663094965
+      spriteID: abbf2058d08220270800000000000000
+      internalID: 8215172708808457146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_13
+      name: 9_11
       rect:
         serializedVersion: 2
-        x: 278
-        y: 189
-        width: 39
-        height: 38
+        x: 228
+        y: 158
+        width: 46
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -484,20 +422,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8e77908e45059840800000000000000
-      internalID: 5230092376983699086
+      spriteID: 74ca5cf0c078db230800000000000000
+      internalID: 3656226958368681031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_14
+      name: 9_12
       rect:
         serializedVersion: 2
-        x: 431
-        y: 121
-        width: 63
-        height: 100
+        x: 272
+        y: 133
+        width: 62
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -506,20 +444,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8572daaac4bb97b40800000000000000
-      internalID: 5438583962981967704
+      spriteID: b80327b01766aab40800000000000000
+      internalID: 5452282934594777227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parrot_05_15
+      name: 9_13
       rect:
         serializedVersion: 2
-        x: 438
-        y: 215
-        width: 42
-        height: 28
+        x: 298
+        y: 62
+        width: 26
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -528,96 +466,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eff9341d45a567e10800000000000000
-      internalID: 2195041188724318206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_16
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 168
-        width: 156
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d7f1f432f6a244b0800000000000000
-      internalID: -5457616239219050536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_17
-      rect:
-        serializedVersion: 2
-        x: 251
-        y: 114
-        width: 54
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a78ed06e0c24c5420800000000000000
-      internalID: 2620042479483611258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_18
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 71
-        width: 68
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dcee7402f82439f50800000000000000
-      internalID: 6886921437668961997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Parrot_05_19
-      rect:
-        serializedVersion: 2
-        x: 301
-        y: 71
-        width: 249
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fba1c6b4be8ee3db0800000000000000
-      internalID: -4810151254704776513
+      spriteID: 4491d088ff2bb8a00800000000000000
+      internalID: 759897772711024964
       vertices: []
       indices: 
       edges: []
@@ -636,26 +486,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Parrot_05_0: 2819338320118772770
-      Parrot_05_1: 4556192802605381293
-      Parrot_05_10: -4688684188376898903
-      Parrot_05_11: 5586664839180949667
-      Parrot_05_12: 448084866663094965
-      Parrot_05_13: 5230092376983699086
-      Parrot_05_14: 5438583962981967704
-      Parrot_05_15: 2195041188724318206
-      Parrot_05_16: -5457616239219050536
-      Parrot_05_17: 2620042479483611258
-      Parrot_05_18: 6886921437668961997
-      Parrot_05_19: -4810151254704776513
-      Parrot_05_2: -3609882061133790875
-      Parrot_05_3: -7532384518479942892
-      Parrot_05_4: -1701752653101864096
-      Parrot_05_5: -5058356677670022816
-      Parrot_05_6: 5142502545513404029
-      Parrot_05_7: -8743702747899291206
-      Parrot_05_8: -1717050745100054538
-      Parrot_05_9: 2345305263467914801
+      9_0: 4113829005332862926
+      9_1: -215640629934891304
+      9_10: 8215172708808457146
+      9_11: 3656226958368681031
+      9_12: 5452282934594777227
+      9_13: 759897772711024964
+      9_2: 6460059290704040764
+      9_3: -1084366493605160568
+      9_4: -6911333492305490673
+      9_5: 5874673946163824410
+      9_6: 570056791386284564
+      9_7: -2826682996054201647
+      9_8: 3022924913893435029
+      9_9: 8647828729984239220
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

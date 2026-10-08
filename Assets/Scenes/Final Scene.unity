@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 246523789}
   - component: {fileID: 246523790}
   m_Layer: 0
-  m_Name: Parrot_09
+  m_Name: Parrot_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 246523788}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.05, y: -30.59, z: 0}
+  m_LocalPosition: {x: 28.03, y: -31.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,12 +200,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 983531a68e60c3b42a57af7d40388efb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85e92c38eb3db3740905f5a859b3727b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.26, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 416252557}
   - component: {fileID: 416252558}
   m_Layer: 0
-  m_Name: Parrot_11
+  m_Name: Parrot_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ Transform:
   m_GameObject: {fileID: 416252556}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.05, y: -22.3, z: 0}
+  m_LocalPosition: {x: 15.09, y: -23.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -334,12 +334,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0b27e51870b92d7479e2e29175e8df40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0110e1cb6db765048aed605bcc8b9846, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.03, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 593557030}
   - component: {fileID: 593557031}
   m_Layer: 0
-  m_Name: Parrot_04
+  m_Name: Parrot_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 593557029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.71, y: 9, z: 0}
+  m_LocalPosition: {x: 41.52, y: 7.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -426,12 +426,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0d2ed97f964497d46bb3668a44255a79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aac126b7e5f5ccc488f86b1d6d576d8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.08, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 682310017}
   - component: {fileID: 682310018}
   m_Layer: 0
-  m_Name: Parrot_10
+  m_Name: Parrot_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,7 +463,7 @@ Transform:
   m_GameObject: {fileID: 682310016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.65, y: -26.7, z: 0}
+  m_LocalPosition: {x: 2.9, y: -28.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -518,12 +518,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 26addd4e6422b8a4789a0c4d383360b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73b5588ad7e9cd34c9db7203e3f0fecc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.35, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 792303396}
   - component: {fileID: 792303397}
   m_Layer: 0
-  m_Name: Parrot_07
+  m_Name: Parrot_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ Transform:
   m_GameObject: {fileID: 792303395}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.7, y: -26.5, z: 0}
+  m_LocalPosition: {x: -6.64, y: -26.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,12 +610,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 004edf7e5538e144583a51a21ce8b32b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15e5cf57d0f4c8b489a504aa57382d02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.51, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 837864008}
   - component: {fileID: 837864009}
   m_Layer: 0
-  m_Name: Parrot_01
+  m_Name: Parrot_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,7 +647,7 @@ Transform:
   m_GameObject: {fileID: 837864007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.88, y: 5.02, z: 0}
+  m_LocalPosition: {x: -6.86, y: 3.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -702,12 +702,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d2433715437e78442b7f25c8157340b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5bf21b9c6be4a1428f43537de3089aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.89, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PanZoom
   boundsObject: {fileID: 1297930717}
   zoomOutMin: 1
-  zoomOutMax: 8
+  zoomOutMax: 27
 --- !u!114 &937178779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 27
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 1082392038}
   - component: {fileID: 1082392039}
   m_Layer: 0
-  m_Name: Parrot_03
+  m_Name: Parrot_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +892,7 @@ Transform:
   m_GameObject: {fileID: 1082392037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.53, y: 8.42, z: 0}
+  m_LocalPosition: {x: 26.74, y: 7.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -947,12 +947,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 9a7cd4f876e472b4d9719831644f113f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a686ccf5e7d6f0a49890134baead7920, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.44, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 1267119934}
   - component: {fileID: 1267119935}
   m_Layer: 0
-  m_Name: Parrot_08
+  m_Name: Parrot_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,7 +984,7 @@ Transform:
   m_GameObject: {fileID: 1267119933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.65, y: -20.1, z: 0}
+  m_LocalPosition: {x: 24.79, y: -20.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1039,12 +1039,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 35e0be5ef929df5478c1daf785a12125, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ef2ce23c16585e479eb51b2be77a534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.81, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1153,7 +1153,7 @@ GameObject:
   - component: {fileID: 1570868724}
   - component: {fileID: 1570868725}
   m_Layer: 0
-  m_Name: Parrot_05
+  m_Name: Parrot_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1168,7 +1168,7 @@ Transform:
   m_GameObject: {fileID: 1570868723}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.25, y: -7.52, z: 0}
+  m_LocalPosition: {x: 26.78, y: -9.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1223,12 +1223,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 1ba2a0d6f1b6b4e45b56bd60a8468637, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd4458b6dc804fe4aa482d8f9dfe8023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.84, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1580194942}
   - component: {fileID: 1580194943}
   m_Layer: 0
-  m_Name: Parrot_06
+  m_Name: Parrot_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,7 +1260,7 @@ Transform:
   m_GameObject: {fileID: 1580194941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.45, y: -14.46, z: 0}
+  m_LocalPosition: {x: 41.23, y: -12.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1315,12 +1315,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 390b6bb206dfcbf4882c9fe0f1569c85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3008e338ec751e46ae7b0f0d824b6cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.54, y: 13.75}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 1626279357}
   - component: {fileID: 1626279358}
   m_Layer: 0
-  m_Name: Parrot_02
+  m_Name: Parrot_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,7 +1352,7 @@ Transform:
   m_GameObject: {fileID: 1626279356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.23, y: -15.28, z: 0}
+  m_LocalPosition: {x: -7.48, y: -15.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1407,12 +1407,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 783da06f4f2080b458b6b76ddc40c8f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55f8950451e9aa64b9d0de5b14d8b302, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.93, y: 13.73}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

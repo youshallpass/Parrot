@@ -32,6 +32,8 @@ public class ColoringManager : MonoBehaviour
 
         picture.sprite = pictures[0];
 
+        picture.rectTransform.sizeDelta = picture.sprite.rect.size;
+
         InitializeCanvasTexture();
     }
 
