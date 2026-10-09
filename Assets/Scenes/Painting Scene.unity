@@ -2962,6 +2962,7 @@ MonoBehaviour:
   resumeSprite: {fileID: 21300000, guid: cea8f7b8029b0e5498f73a9f0f04cf7a, type: 3}
   danish_Narration: {fileID: 8300000, guid: ece80657c31d41e4eb8febf3a624c1e2, type: 3}
   english_Narration: {fileID: 8300000, guid: 5d6c274785f68a94fad78f7045f7bba8, type: 3}
+  pauseDuration: 2
   transition: {fileID: 1212922554}
   screenshotScript: {fileID: 472583790}
   peopleImageManager: {fileID: 741003978}
@@ -4774,7 +4775,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

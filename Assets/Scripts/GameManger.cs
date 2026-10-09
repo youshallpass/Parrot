@@ -11,6 +11,7 @@ public class GameManger : MonoBehaviour
     [SerializeField] Sprite resumeSprite;
     [SerializeField] AudioClip danish_Narration;
     [SerializeField] AudioClip english_Narration;
+    [SerializeField] float pauseDuration = 5.0f;
 
     [Header("Transition")]
     [SerializeField] Animator transition;
@@ -38,6 +39,7 @@ public class GameManger : MonoBehaviour
     private bool NextPictureRunning;
     private int pictureIndex = 0;
     private bool narrationOn = false;
+    private Coroutine narrationCoroutine;
 
     private static GameManger gameManagerInstance;
 
@@ -114,10 +116,9 @@ public class GameManger : MonoBehaviour
             coloringManager.paintmode = true;
 
             StartCoroutine(peopleImageManager.AnimationLoop());
-
         }
 
-        StartCoroutine(StartNarration());
+        PlayNarration();
 
         foreach (GameObject go in uiObjects)
         {
@@ -132,11 +133,47 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("End");
     }
 
+    private void PlayNarration()
+    {
+        if (narrationCoroutine != null)
+        {
+            StopCoroutine(narrationCoroutine);
+        }
+
+        narrationCoroutine = StartCoroutine(StartNarration());
+    }
+
     IEnumerator StartNarration()
     {
         yield return new WaitForSeconds(1);
-        narrationAudioSource.Play();
+
         narrationOn = true;
+
+        while (true)
+        {
+            float timer = 0f;
+
+            while (!narrationOn)
+            {
+                yield return null;
+            }
+
+            narrationAudioSource.Play();
+
+            while (narrationAudioSource.isPlaying || narrationAudioSource.time > 0)
+            {
+                yield return null;
+            }
+
+            while (timer < pauseDuration)
+            {
+                if (narrationOn)
+                {
+                    timer += Time.deltaTime;
+                }
+                yield return null;
+            }
+        }
     }
 
     public void ToggleNarration()
@@ -150,7 +187,7 @@ public class GameManger : MonoBehaviour
         }
         else
         {
-            narrationAudioSource.Play();
+            narrationAudioSource.UnPause();
             narrationOn = true;
             UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = pauseSprite;
         }
@@ -248,7 +285,11 @@ public class GameManger : MonoBehaviour
 
     public void ClickOpenMainMenu()
     {
-        StopCoroutine(StartNarration());
+        if (narrationCoroutine != null)
+        {
+            StopCoroutine(narrationCoroutine);
+            narrationCoroutine = null;
+        }
         narrationAudioSource.Stop();
         narrationOn = false;
 
