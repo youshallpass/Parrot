@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Language
+  m_text: Sprog
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2737,7 +2737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e9e6368db06c77418e5b73c7c3fa3a7, type: 3}
+  m_Sprite: {fileID: -2834816866031520189, guid: d542546c265699c499c24d101c162329, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2848,7 +2848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESET GAME
+  m_text: Nulstil Spil
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2962,17 +2962,20 @@ MonoBehaviour:
   resumeSprite: {fileID: 21300000, guid: cea8f7b8029b0e5498f73a9f0f04cf7a, type: 3}
   danish_Narration: {fileID: 8300000, guid: ece80657c31d41e4eb8febf3a624c1e2, type: 3}
   english_Narration: {fileID: 8300000, guid: 5d6c274785f68a94fad78f7045f7bba8, type: 3}
+  pauseDuration: 2
   transition: {fileID: 1212922554}
   screenshotScript: {fileID: 472583790}
   peopleImageManager: {fileID: 741003978}
   coloringManager: {fileID: 61961478}
   colorManager: {fileID: 2086910293}
   settingsMenuCanvas: {fileID: 936309632}
-  menu_Title: {fileID: 114552673}
-  title_Danish: {fileID: 21300000, guid: 8586a2933cb72694e871900dcb113ca3, type: 3}
-  title_English: {fileID: 21300000, guid: 44f7aa8c327548b4bb820ecaaf544dbe, type: 3}
-  danish_Button: {fileID: 732102770}
-  english_Button: {fileID: 1835661629}
+  menuTitle: {fileID: 114552673}
+  titleDanish: {fileID: 21300000, guid: 8586a2933cb72694e871900dcb113ca3, type: 3}
+  titleEnglish: {fileID: 21300000, guid: 44f7aa8c327548b4bb820ecaaf544dbe, type: 3}
+  danishButton: {fileID: 732102770}
+  englishButton: {fileID: 1835661629}
+  languageText: {fileID: 556654190}
+  resetGameButton: {fileID: 844239901}
 --- !u!4 &1146921195
 Transform:
   m_ObjectHideFlags: 0
@@ -4774,7 +4777,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

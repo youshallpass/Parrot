@@ -24,6 +24,10 @@ public class PanZoom : MonoBehaviour
         TouchInput();
     }
 
+    /// <summary>
+    /// Takes the players touchinput and converts it to panning of zooming
+    /// Only used in the final scene
+    /// </summary>
     private void TouchInput()
     {
         targetPosition = Camera.main.transform.position;
@@ -36,6 +40,7 @@ public class PanZoom : MonoBehaviour
             {
                 touchStart = Camera.main.ScreenToWorldPoint(touch.position);
             }
+            //Calculating Zoom
             if (Input.touchCount == 2)
             {
                 Touch touchZero = Input.GetTouch(0);
@@ -51,6 +56,7 @@ public class PanZoom : MonoBehaviour
 
                 Zoom((float)(difference * 0.01));
             }
+            //Calculating panning 
             else if (touch.phase == TouchPhase.Moved)
             {
                 Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(touch.position);
@@ -61,11 +67,20 @@ public class PanZoom : MonoBehaviour
         Camera.main.transform.position = GetCameraBounds(targetPosition);
     }
 
+    /// <summary>
+    /// Changes the cameras orthographic size based on the increment
+    /// </summary>
+    /// <param name="increment">calculated amount to zoom from TouchInput()</param>
     private void Zoom(float increment)
     {
         Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
     }
 
+    /// <summary>
+    /// Calculates the cameras bounds so the player is limited to a set area on the screen
+    /// </summary>
+    /// <param name="targetPos">Current position of the camera</param>
+    /// <returns>Where the camera can go</returns>
     private Vector3 GetCameraBounds(Vector3 targetPos)
     {
         float height = Camera.main.orthographicSize;
