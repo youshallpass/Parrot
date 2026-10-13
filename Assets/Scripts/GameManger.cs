@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManger : MonoBehaviour
 {
@@ -26,11 +27,13 @@ public class GameManger : MonoBehaviour
 
     [Header("SettingsMenu")]
     [SerializeField] GameObject settingsMenuCanvas;
-    [SerializeField] GameObject menu_Title;
-    [SerializeField] Sprite title_Danish;
-    [SerializeField] Sprite title_English;
-    [SerializeField] GameObject danish_Button;
-    [SerializeField] GameObject english_Button;
+    [SerializeField] GameObject menuTitle;
+    [SerializeField] Sprite titleDanish;
+    [SerializeField] Sprite titleEnglish;
+    [SerializeField] GameObject danishButton;
+    [SerializeField] GameObject englishButton;
+    [SerializeField] GameObject languageText;
+    [SerializeField] GameObject resetGameButton;
 
     private GameObject[] paintingObjects;
     private GameObject[] uiObjects;
@@ -43,6 +46,9 @@ public class GameManger : MonoBehaviour
 
     private static GameManger gameManagerInstance;
 
+    /// <summary>
+    /// Singleton to prevent there being two GameManagers at the same time
+    /// </summary>
     private void Awake()
     {
         if (gameManagerInstance != null && gameManagerInstance != this)
@@ -95,11 +101,18 @@ public class GameManger : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// The buttonpress for starting the game
+    /// </summary>
     public void StartGamePress()
     {
         StartCoroutine(StartGame());
     }
 
+    /// <summary>
+    /// Closes the main menu and starts the game
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartGame()
     {
         transition.SetTrigger("Start");
@@ -133,6 +146,9 @@ public class GameManger : MonoBehaviour
         transition.SetTrigger("End");
     }
 
+    /// <summary>
+    /// Function to prevent there being two narrations at the same time
+    /// </summary>
     private void PlayNarration()
     {
         if (narrationCoroutine != null)
@@ -143,6 +159,10 @@ public class GameManger : MonoBehaviour
         narrationCoroutine = StartCoroutine(StartNarration());
     }
 
+    /// <summary>
+    /// Starts the narration while also allowing for it to pause for a bit before resetting if it finishes
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartNarration()
     {
         yield return new WaitForSeconds(1);
@@ -176,6 +196,9 @@ public class GameManger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// allows the pause and play button to toggle the narration on and off
+    /// </summary>
     public void ToggleNarration()
     {
         if (narrationOn)
@@ -193,6 +216,9 @@ public class GameManger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Prepares to go to the next parrot unless the its the final parrot where it goes to the final scene instead
+    /// </summary>
     public void LoadNextPicture()
     {
         if (!NextPictureRunning)
@@ -209,6 +235,10 @@ public class GameManger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Goes to the next parrot and running the necessary functions
+    /// </summary>
+    /// <returns></returns>
     IEnumerator NextPicture()
     {
         //Fade transition
@@ -224,6 +254,10 @@ public class GameManger : MonoBehaviour
         NextPictureRunning = false;
     }
 
+    /// <summary>
+    /// Goes to the final scene
+    /// </summary>
+    /// <returns></returns>
     IEnumerator NextScene()
     {
         //Fade transition
@@ -249,11 +283,19 @@ public class GameManger : MonoBehaviour
         NextPictureRunning = false;
     }
 
+    /// <summary>
+    /// Opens or closes the settingsmenu via buttonpress
+    /// </summary>
+    /// <param name="active">bool to check if we need to open or close the settings</param>
     public void OpenSetting(bool active)
     {
         settingsMenuCanvas.SetActive(active);
     }
 
+    /// <summary>
+    /// Sets the language and swaps the neccessary objects and text
+    /// </summary>
+    /// <param name="index">Index to decide what language to swap to</param>
     public void SetLanguage(int index)
     {
         switch (index)
@@ -261,28 +303,38 @@ public class GameManger : MonoBehaviour
             //English
             case 1:
                 Debug.Log("Language set to English");
-                menu_Title.GetComponent<Image>().sprite = title_English;
+                menuTitle.GetComponent<Image>().sprite = titleEnglish;
                 narrationAudioSource.clip = english_Narration;
-                english_Button.GetComponent<Outline>().enabled = true;
-                danish_Button.GetComponent<Outline>().enabled = false;
+                englishButton.GetComponent<Outline>().enabled = true;
+                danishButton.GetComponent<Outline>().enabled = false;
+                resetGameButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reset Game";
+                languageText.GetComponent<TextMeshProUGUI>().text = "Language";
                 break;
 
             //Danish
             case 2:
                 Debug.Log("Language set to Danish");
-                menu_Title.GetComponent<Image>().sprite = title_Danish;
+                menuTitle.GetComponent<Image>().sprite = titleDanish;
                 narrationAudioSource.clip = danish_Narration;
-                danish_Button.GetComponent<Outline>().enabled = true;
-                english_Button.GetComponent<Outline>().enabled = false;
+                danishButton.GetComponent<Outline>().enabled = true;
+                englishButton.GetComponent<Outline>().enabled = false;
+                resetGameButton.GetComponentInChildren<TextMeshProUGUI>().text = "Nulstil Spil";
+                languageText.GetComponent<TextMeshProUGUI>().text = "Sprog";
                 break;
         }
     }
 
+    /// <summary>
+    /// Button press for resetting the paint of a parrot
+    /// </summary>
     public void ResetPainting()
     {
         coloringManager.ClearCanvas();
     }
 
+    /// <summary>
+    /// Button press for opening the main menu
+    /// </summary>
     public void ClickOpenMainMenu()
     {
         if (narrationCoroutine != null)
@@ -302,6 +354,10 @@ public class GameManger : MonoBehaviour
         StartCoroutine(OpenMainMenu());
     }
 
+    /// <summary>
+    /// Opens the main menu
+    /// </summary>
+    /// <returns></returns>
     IEnumerator OpenMainMenu()
     {
         transition.SetTrigger("Start");
@@ -326,6 +382,9 @@ public class GameManger : MonoBehaviour
         NextPictureRunning = false;
     }
 
+    /// <summary>
+    /// Destroys all objects and completely resets the game
+    /// </summary>
     public void ResetGame()
     {
         foreach (GameObject go in uiObjects)
@@ -346,6 +405,9 @@ public class GameManger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Takes a screenshot to use for the final scene
+    /// </summary>
     public void TakeScreenshot()
     {
         coloringManager.ClearMaskPaint();
@@ -356,6 +418,9 @@ public class GameManger : MonoBehaviour
         screenshotScript.takeScreenshot = true;
     }
 
+    /// <summary>
+    /// Gets all parrot placements in the final scene and places the screenshots in those positions
+    /// </summary>
     private void FindAllParrotObjects()
     {
         GameObject parrent = GameObject.Find("Parrots");

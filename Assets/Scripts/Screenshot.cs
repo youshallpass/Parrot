@@ -29,6 +29,10 @@ public class Screenshot : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Takes a screenshot based on targetsprites size and makes it transparrent before saving it to a static list
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CaptureScreenshot()
     {
         yield return new WaitForEndOfFrame();
@@ -53,12 +57,11 @@ public class Screenshot : MonoBehaviour
         Color[] pixels = screenshotTexture.GetPixels();
         for (int i = 0; i < pixels.Length; i++)
         {
-            // Check if Red, Green, and Blue values are all above the threshold
             if (pixels[i].r >= whiteThreshold &&
                 pixels[i].g >= whiteThreshold &&
                 pixels[i].b >= whiteThreshold)
             {
-                pixels[i] = Color.clear; // Sets r, g, b, and alpha to 0
+                pixels[i] = Color.clear;
             }
         }
         screenshotTexture.SetPixels(pixels);

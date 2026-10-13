@@ -17,6 +17,7 @@ public class ColorManager : MonoBehaviour
 
         UpdateColors(0);
 
+        //Sets the current color of the paintbrush using the color of the pressed button
         List<Button> allButtons = new List<Button>();
         foreach (var go in sortedColorObjects)
         {
@@ -34,12 +35,10 @@ public class ColorManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// Updated the colors of the palette based on the scriptable object ColorData
+    /// </summary>
+    /// <param name="index">Current index so it matches the current parrot</param>
     public void UpdateColors(int index)
     {
         ColorData color = colorData[index];

@@ -46,6 +46,9 @@ public class ColoringManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Takes the players touchinput and converts it into the different paint functions
+    /// </summary>
     private void TouchInput()
     {
         if (Input.touchCount > 0)
@@ -72,6 +75,9 @@ public class ColoringManager : MonoBehaviour
 #endif
     }
 
+    /// <summary>
+    /// Prepares the paintlayer with a new canvas texture if needed and saves it for future reference
+    /// </summary>
     public void InitializeCanvasTexture()
     {
         if (canvasTextures[pictureIndex] != null)
@@ -96,6 +102,9 @@ public class ColoringManager : MonoBehaviour
         UpdatePaintLayerToPicture();
     }
 
+    /// <summary>
+    /// Matches the lineart and the paintlayer on top of eachother so it looks like you are painting on the parrot lineart.
+    /// </summary>
     private void UpdatePaintLayerToPicture()
     {
         if (picture == null || paintLayer == null || paintLayer.sprite == null)
@@ -112,36 +121,31 @@ public class ColoringManager : MonoBehaviour
 
         RectTransform pictureRect = picture.rectTransform;
 
-        // Get the actual corners of the UI Image after Canvas scaling.
         Vector3[] corners = new Vector3[4]; pictureRect.GetWorldCorners(corners);
 
-        // Screen Space Overlay does not use a camera.
         Vector2 bottomLeftScreen = RectTransformUtility.WorldToScreenPoint(null, corners[0]);
         Vector2 topRightScreen = RectTransformUtility.WorldToScreenPoint(null, corners[2]);
 
-        // Determine how far the paint layer is from the camera.
         float distanceFromCamera = Mathf.Abs(camera.transform.position.z - paintLayer.transform.position.z);
 
-        // Convert the UI corners from screen coordinates to world coordinates.
         Vector3 bottomLeftWorld = camera.ScreenToWorldPoint(new Vector3(bottomLeftScreen.x, bottomLeftScreen.y, distanceFromCamera));
         Vector3 topRightWorld = camera.ScreenToWorldPoint(new Vector3(topRightScreen.x, topRightScreen.y, distanceFromCamera));
 
-        // The actual world-space size occupied by the UI Image.
         Vector2 targetWorldSize = new Vector2(Mathf.Abs(topRightWorld.x - bottomLeftWorld.x), Mathf.Abs(topRightWorld.y - bottomLeftWorld.y));
 
-        // The SpriteRenderer's original size before its Transform scale.
         Vector2 spriteSize = paintLayer.sprite.bounds.size;
 
-        // Calculate the scale required to make the SpriteRenderer exactly the same size as the UI Image.
         float scaleX = targetWorldSize.x / spriteSize.x;
         float scaleY = targetWorldSize.y / spriteSize.y;
         paintLayer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
 
-        // Put the SpriteRenderer at the center of the UI Image.
         Vector3 worldCenter = (bottomLeftWorld + topRightWorld) * 0.5f;
         paintLayer.transform.position = new Vector3(worldCenter.x, worldCenter.y, paintLayer.transform.position.z);
     }
 
+    /// <summary>
+    /// Function to clear the canvas if the player wants to reset their paint for a specific parrot
+    /// </summary>
     public void ClearCanvas()
     {
         Color[] clearColorArray = new Color[canvasTexture.width * canvasTexture.height];
@@ -153,15 +157,21 @@ public class ColoringManager : MonoBehaviour
         canvasTexture.Apply();
     }
 
+    /// <summary>
+    /// Changes to the next picture which swaps the lineart and goes back to prepare a new texture for the paintlayer
+    /// </summary>
+    /// <param name="index">Current index so it matches the current parrot</param>
     public void NextPicture(int index)
     {
-        //ClearMaskPaint();
         pictureIndex = index;
         picture.sprite = pictures[pictureIndex];
         picture.rectTransform.sizeDelta = picture.sprite.rect.size;
         InitializeCanvasTexture();
     }
 
+    /// <summary>
+    /// Clears the paint of the branches using the mask for the branch
+    /// </summary>
     public void ClearMaskPaint()
     {
         for (int x = 0; x < canvasTexture.width; x++)
@@ -180,6 +190,10 @@ public class ColoringManager : MonoBehaviour
         canvasTexture.Apply();
     }
 
+    /// <summary>
+    /// Takes the players input and calculates where to paint on the screen
+    /// </summary>
+    /// <param name="touchPosition"></param>
     private void Paint(Vector2 touchPosition)
     {
         Vector3 screenPosition = new Vector3(touchPosition.x, touchPosition.y, -Camera.main.transform.position.z);
@@ -223,6 +237,11 @@ public class ColoringManager : MonoBehaviour
         canvasTexture.Apply();
     }
 
+    /// <summary>
+    /// Paints a line based on the players touch, helps with optimization and lag
+    /// </summary>
+    /// <param name="start">Start of the player touchinput</param>
+    /// <param name="end">End of the player touchinput</param>
     private void PaintLine(Vector2 start, Vector2 end)
     {
         float distance = Vector2.Distance(start, end);
@@ -237,35 +256,29 @@ public class ColoringManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the size of the "paintbrush"
+    /// </summary>
+    /// <param name="newBrushSize"></param>
     public void SetBrushSize(float newBrushSize)
     {
         brushSize = newBrushSize;
     }
 
+    /// <summary>
+    /// Sets the color of the "paintbrush"
+    /// </summary>
+    /// <param name="newColor">The new color it needs to be set to</param>
     public void SetColor(Color newColor)
     {
         color = newColor;
     }
 
+    /// <summary>
+    /// Sets the color of the "paintbrush" to a clear color, so the player can erase their paint
+    /// </summary>
     public void SetColorClear()
     {
         color = Color.clear;
-    }
-
-    public void ResetAllCanvas()
-    {
-        for (int i = 0; i < canvasTextures.Length; i++)
-        {
-            if (canvasTextures[i] != null)
-            {
-                Color[] clearColorArray = new Color[canvasTextures[i].width * canvasTextures[i].height];
-                for (int j = 0; j < clearColorArray.Length; j++)
-                {
-                    clearColorArray[j] = Color.clear;
-                }
-                canvasTextures[i].SetPixels(clearColorArray);
-                canvasTextures[i].Apply();
-            }
-        }
     }
 }

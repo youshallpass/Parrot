@@ -22,6 +22,11 @@ public class PeopleImageManager : MonoBehaviour
         bodyPart2.SetActive(false);
     }
 
+    /// <summary>
+    /// Based on the scriptable object PeopleData it finds the new asset for the people and swaps them out, while also changeing their position
+    /// and starting animations if needed
+    /// </summary>
+    /// <param name="imageIndex">The current person it needs to find so it matches with the parrot</param>
     public void ChangeImageAndAnimations(int imageIndex)
     {
         PeopleData person = people[imageIndex];
@@ -77,6 +82,11 @@ public class PeopleImageManager : MonoBehaviour
         StartCoroutine(AnimationLoop());
     }
 
+    /// <summary>
+    /// Loop to have the Animation play for 10 seconds and pause for 10 seconds before playing again
+    /// To keep it from being too distracting
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator AnimationLoop()
     {
         while (true)
