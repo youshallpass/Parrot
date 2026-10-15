@@ -65,14 +65,22 @@ struct KinoAquaFilter
 
     // Gradient function
 
+    // MODIFIED: Broadened gradient sampling window to fix angular/jagged strokes
     float2 GetGradient(float2 p, float freq)
     {
-        const float2 dx = float2(interval / 200, 0);
+        // Increasing the divisor from 200 down to roughly 80-100 broadens the sampling footprint,
+        // which rounds out hard corners and makes directional changes look fluid and curved.
+        const float2 dx = float2(interval / 90.0, 0);
+        
         float ldx = SampleLuminance(p + dx.xy) - SampleLuminance(p - dx.xy);
         float ldy = SampleLuminance(p + dx.yx) - SampleLuminance(p - dx.yx);
-        float2 n = SampleNoise(p * 0.4 * freq).gb - 0.5;
-        return float2(ldx, ldy) + n * 0.05;
+        
+        // Slightly boosting the noise frequency breaks up any remaining straight line trajectories
+        float2 n = SampleNoise(p * 0.7 * freq).gb - 0.5;
+        
+        return float2(ldx, ldy) + n * 0.07;
     }
+
 
     // Edge / fill processing functions
 
@@ -120,11 +128,14 @@ struct KinoAquaFilter
             acc_e += ProcessEdge(p_e_p, +Stride) * w_e;
             sum_e += w_e * 2;
 
-            float w_c = 0.2 + i * iterationRcp;
-            acc_c += ProcessFill(p_c_n, -Stride * blurWidth) * w_c;
-            acc_c += ProcessFill(p_c_p, +Stride * blurWidth) * w_c * 0.3;
-            sum_c += w_c * 1.3;
+            // MODIFIED: Increase the clarity factor of earlier iterations
+            // to preserve core color definition and sharpness in the middle
+            float w_c = 1.0 - (i * iterationRcp * 0.5);
+            acc_c += ProcessFill(p_c_n, -Stride * (blurWidth * 0.5)) * w_c;
+            acc_c += ProcessFill(p_c_p, +Stride * (blurWidth * 0.5)) * w_c;
+            sum_c += w_c * 2.0;
         }
+
 
         // Normalization and contrast
 
@@ -134,11 +145,15 @@ struct KinoAquaFilter
         acc_e = saturate((acc_e - 0.5) * edgeContrast + 0.5);
 
         // Color blending
-
-        float3 rgb_e = lerp(1, edgeColor.rgb, edgeColor.a * acc_e);
         float3 rgb_f = lerp(1, acc_c, fillColor.a) * fillColor.rgb;
 
+        // MODIFIED: Instead of multiplying by a dark edge profile, we use 
+        // a soft inversion mask to ensure boundaries stay clean and light
+        float3 rgb_e = lerp(1.0, 1.0 + (1.0 - edgeColor.rgb), edgeColor.a * (1.0 - acc_e));
+        rgb_e = saturate(rgb_e);
+
         return rgb_e * rgb_f;
+
     }
 };
 
